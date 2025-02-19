@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route,Routes } from 'react-router-dom'
 import MainForm from '../components/MainForm'
-import Startup from './Startup'
+import Startup from './StartupRouting'
 import StartupAdminRouting from './StartupAdminRouting'
 import SuperAdminRouting from './SuperAdminRouting'
 

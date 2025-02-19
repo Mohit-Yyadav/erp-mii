@@ -1,8 +1,9 @@
 import React from 'react'
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+import Navbar from '../dashboard_components/Navbar'
+import Sidebar from '../dashboard_components/Sidebar'
 import MainContent from './MainContent'
-import Rightcom from './Rightcom'
+import Rightcom from '../dashboard_components/Rightcom'
+import '../../assets/css/super_admin/dashboard.css'
 
 
 const Dashboard = () => {
