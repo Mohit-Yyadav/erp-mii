@@ -10,7 +10,7 @@ const Routing = () => {
      <Routes>
       <Route path="/super-admin" element={<SuperAdminRouting />} />
       <Route path="/" element={<MainForm />} />
-      <Route path="/startup" element={<Startup />} />
+      <Route path="/startup/*" element={<Startup />} />
       <Route path="/startup-admin" element={<StartupAdminRouting />} />
     </Routes>
   )
