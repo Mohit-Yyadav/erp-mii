@@ -1,97 +1,58 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import styles from "../../assets/css/startup_admin/Sidebar.module.css";
 
-const Sidebar = ({ isSidebarVisible }) => {
-  const [dropdownOpen, setDropdownOpen] = useState(null);
+const Sidebar = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isNestedMenuOpen, setNestedMenuOpen] = useState(false);
 
-  const toggleDropdown = (id) => {
-    setDropdownOpen(dropdownOpen === id ? null : id);
-  };
+  const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
+  const toggleNestedMenu = () => setNestedMenuOpen(!isNestedMenuOpen);
 
   return (
-    <div className={`sidebar ${isSidebarVisible ? "active" : ""}`} id="sidebar">
-      <li className="ps-4">Overview</li>
-      <li className="ps-4">Project</li>
-      <div className="p-4">
-        {/* Startup Dropdown */}
-        <div className={`dropdown mb-3 ${dropdownOpen === 1 ? "open" : ""}`}>
-          <button
-            className="nav-link dropdown-toggle w-100 text-start"
-            onClick={() => toggleDropdown(1)}
-          >
-            <i className={`fas fa-home me-2 ${dropdownOpen === 1 ? "rotate" : ""}`}></i>
-            <span>Startup</span>
-          </button>
-          <div className={`dropdown-content ${dropdownOpen === 1 ? "open" : ""}`}>
-            {dropdownOpen === 1 && (
-              <>
-                <a className="dropdown-item" href="#">New Startup</a>
-                <a className="dropdown-item" href="#">Startup List</a>
-                <a className="dropdown-item" href="#">Add Funding</a>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* Admin Dropdown */}
-        <div className={`dropdown mb-3 ${dropdownOpen === 2 ? "open" : ""}`}>
-          <button
-            className="nav-link dropdown-toggle w-100 text-start"
-            onClick={() => toggleDropdown(2)}
-          >
-            <i className={`fas fa-user-shield me-2 ${dropdownOpen === 2 ? "rotate" : ""}`}></i>
-            <span>Admin</span>
-          </button>
-          <div className={`dropdown-content ${dropdownOpen === 2 ? "open" : ""}`}>
-            {dropdownOpen === 2 && (
-              <>
-                <a className="dropdown-item" href="#">delete</a>
-                <a className="dropdown-item" href="#">Update</a>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* Incubation Status Dropdown */}
-        <div className={`dropdown mb-3 ${dropdownOpen === 5 ? "open" : ""}`}>
-          <button
-            className="nav-link dropdown-toggle w-100 text-start"
-            onClick={() => toggleDropdown(5)}
-          >
-            <i className={`fas fa-chart-line me-2 ${dropdownOpen === 5 ? "rotate" : ""}`}></i>
-            <span>Incubation Status</span>
-          </button>
-          <div className={`dropdown-content ${dropdownOpen === 5 ? "open" : ""}`}>
-            {dropdownOpen === 5 && (
-              <>
-                <a className="dropdown-item" href="#">View Progress</a>
-                <a className="dropdown-item" href="#">Update Status</a>
-                <a className="dropdown-item" href="#">Request Feedback</a>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* Milestone Dropdown */}
-        <div className={`dropdown mb-3 ${dropdownOpen === 6 ? "open" : ""}`}>
-          <button
-            className="nav-link dropdown-toggle w-100 text-start"
-            onClick={() => toggleDropdown(6)}
-          >
-            <i className={`fas fa-flag me-2 ${dropdownOpen === 6 ? "rotate" : ""}`}></i>
-            <span>Milestone</span>
-          </button>
-          <div className={`dropdown-content ${dropdownOpen === 6 ? "open" : ""}`}>
-            {dropdownOpen === 6 && (
-              <>
-                <a className="dropdown-item" href="#">View Milestones</a>
-                <a className="dropdown-item" href="#">Add Milestone</a>
-                <a className="dropdown-item" href="#">Completed Milestones</a>
-              </>
-            )}
-          </div>
-        </div>
+    <>
+      {/* Three-dot menu (visible only on mobile) */}
+      <div className={styles.kebabMenu} onClick={toggleSidebar}>
+        <i className="bi bi-three-dots-vertical"></i>
       </div>
-    </div>
+
+      {/* Sidebar */}
+      <nav id="sidebar" className={`${styles.sidebar} ${isSidebarOpen ? styles.show : ""}`}>
+        <div className={styles.positionSticky}>
+          <a className={`navbar-brand mx-auto ${styles.navbarBrand}`}>MII FOUNDATION</a>
+
+          <ul className={styles.nav}>
+            <li>• Overview</li>
+            <li>• Projects</li>
+            <li className={styles.textMuted}>Dashboards</li>
+
+            <li>
+              <div
+                onClick={toggleNestedMenu}
+                             
+              >
+                <i className={`bi bi-play-fill `}></i>
+                Startup
+              </div>
+
+              <ul className={`${styles.nestedMenu} ${isNestedMenuOpen ? styles.show : ""}`}>
+                <li><i className="bi bi-person"></i> Admin</li>
+                <li><i className="bi bi-trash"></i> Delete</li>
+                <li><i className="bi bi-pencil-square"></i> Update</li>
+              </ul>
+            </li>
+
+            <li>
+              <i className="bi bi-chevron-right"></i>
+              <i className="bi bi-envelope"></i> Incubation Status
+            </li>
+            <li>
+              <i className="bi bi-chevron-right"></i>
+              <i className="bi bi-folder"></i> Milestone
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 };
 

@@ -1,0 +1,112 @@
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 220px;
+  top: 0;
+  left: 10px;
+  z-index: 1040;
+  transition: transform 0.3s ease-in-out;
+  background-color: #fff;
+  border-right: 1px solid #e0e0e0;
+}
+
+.positionSticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding-top: 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.navbarBrand {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  left: 10px;
+  top: 0px;
+  position: relative;
+}
+
+.navbarBrand::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 10px;
+}
+
+.nav li {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.nav li:hover {
+  background-color: #f8f9fa;
+}
+
+.textMuted {
+  color: #6c757d;
+  font-size: 0.9rem;
+  padding: 10px 15px;
+}
+
+/* Nested menu styles */
+.nestedMenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  padding-left: 1rem;
+}
+
+.nestedMenu.show {
+  max-height: 500px;
+}
+
+.bi {
+  margin-right: 8px;
+}
+
+/* Three-dot (kebab) menu icon */
+.kebabMenu {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1050;
+  background-color: #fff;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 1020px) {
+  .sidebar {
+    transform: translateX(-100%);
+    padding-top: 20px;
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  .kebabMenu {
+    display: block;
+  }
+
+  .navbarBrand {
+    display: none;
+    
+  }
+}

@@ -1,0 +1,125 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  left:20px;
+}
+
+/* Brand Name */
+.navbarBrand {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.navbarBrand::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+/* Navbar Links */
+.navLinks {
+  display: flex;
+  gap: 15px;
+  
+}
+
+.navLink {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0a0a0b;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::before {
+  width: 80%;
+}
+
+.navLink:hover {
+  color: #090909;
+  transform: translateY(-2px);
+  font-weight: bold;
+}
+
+/* Right Icons */
+.iconContainer {
+  display: flex;
+  gap: 15px;
+}
+
+.icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #555;
+}
+
+/* Mobile Menu */
+.navbarToggler {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 1020px) {
+  .navLinks {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: -100%; /* Initially off-screen */
+      width: 50%; /* 30% width for mobile */
+      height: 100vh;
+      background-color: #fff;
+      border-left: 1px solid #ddd;
+      z-index: 1000;
+      transition: right 0.3s ease;
+      padding-left: 10px;
+  }
+ .navbar{
+      display: flex;
+      justify-content: space-around;
+ }
+  .showMenu {
+      display: flex;
+      right: 0; /* Slide in */
+  }
+
+  .navbarToggler {
+      display: block;
+  }
+
+  .iconContainer {
+      gap: 10px;
+  }
+}
