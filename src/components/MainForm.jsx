@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../assets/css/MainForm.module.css"; // Import the CSS Module
 
+
 const MainForm = () => {
   const updateProgress = () => {
     console.log("Progress updated!");
