@@ -95,6 +95,7 @@
   .sidebar {
     transform: translateX(-100%);
     padding-top: 20px;
+    left: 0;
   }
 
   .sidebar.show {

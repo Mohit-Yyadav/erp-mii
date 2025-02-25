@@ -3,7 +3,7 @@ import styles from '../../assets/css/startup_admin/NavbarSection.module.css';
 
 const NavbarSection = ({ toggleMobileMenu, isMobileMenuOpen }) => {
     return (
-      <nav className={styles.navbar} style={{ position: 'fixed', width: '100%', top: 0, zIndex: 1050 }}>
+      <nav className={styles.navbar} >
         <div className={styles.navbarBrand}>MII FOUNDATION</div>
   
         {/* Kebab Menu */}
