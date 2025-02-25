@@ -1,0 +1,21 @@
+
+
+
+body {
+    background: rgb(212, 215, 218)!important;
+
+
+}
+.container {
+    background-color: rgb(221, 210, 210);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for better UI */
+  }
+  
+.profile-img {
+  width: 41px !important;
+  height: 40px !important;
+  border-radius: 72%;
+  object-fit: cover;
+}
