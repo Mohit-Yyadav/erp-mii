@@ -64,6 +64,7 @@
 
 /* Nested menu styles */
 .nestedMenu {
+  list-style: none !important;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
