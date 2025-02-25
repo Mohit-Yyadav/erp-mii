@@ -1,6 +1,5 @@
 import React from "react";
-import styles from "../assets/css/MainForm.module.css"; // Import the CSS Module
-
+import styles from "../assets/css/MainForm.module.css";
 
 const MainForm = () => {
   const updateProgress = () => {
@@ -15,30 +14,6 @@ const MainForm = () => {
             <h2 className="text-decoration-underline mb-5">
               Startup Registration Form
             </h2>
-
-            <div className="container mt-4 position-relative" style={{ width: "63%" }}>
-              <div
-                className={`${styles.dFlex} text-white justify-content-between px-2`}
-                style={{ position: "absolute", width: "100%", top: "-25px" }}
-              >
-                <span>Personal</span>
-                <span>Startup</span>
-                <span>Business</span>
-                <span>Facility</span>
-              </div>
-
-              <div className={styles.progressBar}>
-                <div
-                  id="progress-bar"
-                  className={styles.progressBarFill}
-                  role="progressbar"
-                  style={{ width: "0%" }}
-                  aria-valuenow="0"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </div>
           </div>
 
           {/* Personal Details */}
@@ -49,6 +24,8 @@ const MainForm = () => {
               </h4>
 
               <div className="row">
+                {/* Left column */}
+
                 <div className="col-md-6">
                   <div className="mb-4">
                     <label htmlFor="name" className={styles.formLabel}>
@@ -81,12 +58,12 @@ const MainForm = () => {
                       Department/Course
                     </label>
                     <select
-                      className={`${styles.formControl} form-select`}
+                      className={styles.formControl}
                       id="department"
                       required
                     >
-                      <option value="" disabled hidden selected>
-                        Select Department/Course
+                      <option value="" disabled hidden>
+                        Select Department / Course
                       </option>
                       <option value="A">Subject-1</option>
                       <option value="B">Subject-2</option>
@@ -97,21 +74,37 @@ const MainForm = () => {
                   </div>
                 </div>
 
+                {/* Right Column */}
+
                 <div className="col-md-6">
-                  <div className="mb-4">
-                    <label htmlFor="studentID" className={styles.formLabel}>
+
+                <div className="mb-4">
+                    <label htmlFor="StudentId" className={styles.formLabel}>
                       Student ID
                     </label>
                     <input
                       type="text"
                       className={styles.formControl}
-                      id="studentID"
+                      id="StudentId"
                       placeholder="Student ID"
                       required
                     />
                   </div>
 
-                  <div className="mb-3">
+                  <div className="mb-4">
+                    <label htmlFor="year_of_study" className={styles.formLabel}>
+                      Year Of Study
+                    </label>
+                    <input
+                      type="date"
+                      className={styles.formControl}
+                      id="year_of_study"
+                      placeholder="Year of Study"
+                      required
+                    />
+                  </div>
+
+                  <div className="mb-4">
                     <label htmlFor="phone_number" className={styles.formLabel}>
                       Phone Number
                     </label>
@@ -124,14 +117,43 @@ const MainForm = () => {
                     />
                   </div>
 
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Startup Details */}
+          <section className={`${styles.formCard} mt-5`}>
+            <div className="card-body">
+              <h4 className="card-title mb-4 text-decoration-underline">
+                Startup Details
+              </h4>
+              
+              <div className="row">
+                <div className="col-md-6">
                   <div className="mb-3">
-                    <label htmlFor="year_of_study" className={styles.formLabel}>
-                      Year of Study
+                    <label htmlFor="startup_name" className="form-label">
+                      Startup Name
                     </label>
                     <input
-                      type="date"
-                      className={styles.formControl}
-                      id="year_of_study"
+                      type="text"
+                      className="form-control"
+                      id="startup_name"
+                      placeholder="Enter Startup Name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="mb-3">
+                    <label htmlFor="industry_sector" className="form-label">
+                      Industry Sector
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="industry_sector"
+                      placeholder="Enter Industry Sector"
                       required
                     />
                   </div>
@@ -140,8 +162,109 @@ const MainForm = () => {
             </div>
           </section>
 
+          {/* Business Details */}
+          <section className="card shadow-lg mt-5">
+            <div className="card-body">
+              <h4 className="card-title mb-4 text-decoration-underline">
+                Business Details
+              </h4>
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="mb-3">
+                    <label htmlFor="expected_investment" className="form-label">
+                      Expected Investment
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="expected_investment"
+                      placeholder="Enter Expected Investment"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="mb-3">
+                    <label htmlFor="revenue_model" className="form-label">
+                      Revenue Model
+                    </label>
+                    <textarea
+                      className="form-control"
+                      id="revenue_model"
+                      rows="3"
+                      placeholder="Describe Revenue Model"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Facility Required */}
+          <section className="card shadow-lg mt-5">
+            <div className="card-body">
+              <h4 className="card-title mb-4 text-decoration-underline">
+                Facility Required
+              </h4>
+              <div className="row">
+                <div className="col-md-4">
+                  <label className="form-label fw-bold">Office Space</label>
+                  <div className="form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="cabin"
+                    />
+                    <label className="form-check-label" htmlFor="cabin">
+                      Cabin
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="bench"
+                    />
+                    <label className="form-check-label" htmlFor="bench">
+                      Bench
+                    </label>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <label className="form-label fw-bold">
+                    Mentorship Required
+                  </label>
+                  <div className="form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="yes_mentorship"
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="yes_mentorship"
+                    >
+                      Yes
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="no_mentorship"
+                    />
+                    <label className="form-check-label" htmlFor="no_mentorship">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Submit Button */}
-          <div className="container mt-5 mb-5 text-center">
+          <div className="container mt-5 text-center">
             <button
               type="submit"
               className={styles.btnPrimary}
