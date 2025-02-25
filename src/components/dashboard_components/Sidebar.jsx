@@ -10,9 +10,9 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Three-dot menu (visible only on mobile) */}
-      <div className={styles.kebabMenu} onClick={toggleSidebar}>
-        <i className="bi bi-three-dots-vertical"></i>
+      {/* Hamburger menu (visible only on mobile) */}
+      <div className={styles.humMenu} onClick={toggleSidebar}>
+        <i className="bi bi-list"></i>
       </div>
 
       {/* Sidebar */}
@@ -26,11 +26,8 @@ const Sidebar = () => {
             <li className={styles.textMuted}>Dashboards</li>
 
             <li>
-              <div
-                onClick={toggleNestedMenu}
-                             
-              >
-                <i className={`bi bi-play-fill `}></i>
+              <div onClick={toggleNestedMenu}>
+                <i className="bi bi-play-fill"></i>
                 Startup
               </div>
 

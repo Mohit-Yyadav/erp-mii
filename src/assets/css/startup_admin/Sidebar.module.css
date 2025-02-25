@@ -78,10 +78,10 @@
   margin-right: 8px;
 }
 
-/* Three-dot (kebab) menu icon */
-.kebabMenu {
+/* Three-dot (hum) menu icon */
+.humMenu {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 10px;
   left: 10px;
   font-size: 24px;
@@ -101,7 +101,7 @@
     transform: translateX(0);
   }
 
-  .kebabMenu {
+  .humMenu {
     display: block;
   }
 
