@@ -26,17 +26,25 @@ const Sidebar = () => {
             <li className={styles.textMuted}>Dashboards</li>
 
             <li>
-              <div onClick={toggleNestedMenu}>
-                <i className="bi bi-play-fill"></i>
-                Startup
-              </div>
+      <div onClick={toggleNestedMenu} style={{ cursor: "pointer", display: "flex", alignItems: "center" }}>
+        <i 
+          className="bi bi-chevron-right"
+          style={{ 
+            transform: isNestedMenuOpen ? "rotate(90deg)" : "rotate(0deg)", 
+            transition: "transform 0.3s ease" 
+          }}
+        ></i>
+       
+        <span style={{ marginLeft: "8px" }}><i className="bi bi-folder"></i> Startup</span>
+      </div>
 
-              <ul className={`${styles.nestedMenu} ${isNestedMenuOpen ? styles.show : ""}`}>
-                <li><i className="bi bi-person"></i> Admin</li>
-                <li><i className="bi bi-trash"></i> Delete</li>
-                <li><i className="bi bi-pencil-square"></i> Update</li>
-              </ul>
-            </li>
+      {/* Dropdown Menu */}
+      <ul className={`${styles.nestedMenu} ${isNestedMenuOpen ? styles.show : ""}`}>
+        <li><i className="bi bi-person"></i> Admin</li>
+        <li><i className="bi bi-trash"></i> Delete</li>
+        <li><i className="bi bi-pencil-square"></i> Update</li>
+      </ul>
+    </li>
 
             <li>
               <i className="bi bi-chevron-right"></i>
