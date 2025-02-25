@@ -17,6 +17,7 @@
 
 /* Brand Name */
 .navbarBrand {
+  margin-left:10px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
