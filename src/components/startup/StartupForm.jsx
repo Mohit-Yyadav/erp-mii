@@ -1,7 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
 import styles from "../../assets/css/startup/StartupForm.module.css";
 
 const StartupProfileForm = () => {
