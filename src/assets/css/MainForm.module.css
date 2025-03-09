@@ -1,8 +1,10 @@
 .formBody {
-  background-color: #f8f9fa;
+  background-color: #010804;
+  background-position: center;
   padding: 20px;
   border-radius: 8px;
 }
+
 
 .textCenter {
   text-align: center;
@@ -22,6 +24,11 @@
 
 .cardBody {
   padding: 15px;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .cardTitle {
@@ -63,3 +70,4 @@
 .submitButton:hover {
   background-color: #0056b3;
 }
+  
