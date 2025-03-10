@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../assets/css/MainForm.module.css";
 import {useForm } from "react-hook-form";
+import axios from "../../utils/Axios"
 
 
 
@@ -8,10 +9,16 @@ import {useForm } from "react-hook-form";
 const MainForm = () => {
   const [progress, setProgress] = useState(0);
 const {register,handleSubmit,reset} = useForm();
-const [data,setData]=useState(null)
-console.log(data);
-const submitData =(data)=>{ console.log(data);
-  setData(data);
+
+const submitData = async (data)=>{ 
+  if(isNotEmpty(data)){
+    try {
+      const result = await axios.post("/api/mainfrom/insert-data");
+      console.log(result);
+    } catch (error) {
+      console.log(error)
+    }
+  }
   reset()
   reset()
 }
