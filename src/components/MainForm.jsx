@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import styles from "../assets/css/MainForm.module.css";
+import {useForm } from "react-hook-form";
 
 
 
 
 const MainForm = () => {
   const [progress, setProgress] = useState(0);
-
+const {register,handleSubmit,reset} = useForm();
+const [data,setData]=useState(null)
+console.log(data);
+const submitData =(data)=>{ console.log(data);
+  setData(data);
+  reset()
+  reset()
+}
+ 
+    
 
   const updateProgress = () => {
     let completedSections = 0;
@@ -77,9 +87,10 @@ const MainForm = () => {
 
 
   return (
+    
     <>
       <div className="container mt-5">
-        <form className={styles.formBody}>
+        <form  action= "" onSubmit={handleSubmit(data=>submitData(data))} className={styles.formBody}>
           <div className="container mt-5">
             <div id="header-text" className={styles.headerText}>
               <h2 className="text-decoration-underline mb-5 text-center">
@@ -119,10 +130,11 @@ const MainForm = () => {
                       <label htmlFor="name" className={styles.formLabel}>
                         Full Name
                       </label>
-                      <input
+                      <input  {...register('name')} 
                         type="text"
                         className={styles.formControl}
                         id="name"
+                        name="name"
                         placeholder="Full Name"
                         onChange={updateProgress}
                         required
@@ -134,7 +146,8 @@ const MainForm = () => {
                       <label htmlFor="email" className={styles.formLabel}>
                         Email ID
                       </label>
-                      <input
+                      <input {...register('email')}
+                      name="email"
                         type="email"
                         className={styles.formControl}
                         id="email"
@@ -149,7 +162,8 @@ const MainForm = () => {
                       <label htmlFor="department" className={styles.formLabel}>
                         Department/Course
                       </label>
-                      <select
+                      <select {...register('department')}
+                      name="department"
                         className={styles.formControl}
                         id="department"
                         onChange={updateProgress}
@@ -176,8 +190,9 @@ const MainForm = () => {
                       <label htmlFor="StudentId" className={styles.formLabel}>
                         Student ID
                       </label>
-                      <input
+                      <input {...register('StudentId')}
                         type="text"
+                        name="StudentId"
                         className={styles.formControl}
                         id="StudentId"
                         placeholder="Student ID"
@@ -194,7 +209,8 @@ const MainForm = () => {
                       >
                         Year Of Study
                       </label>
-                      <input
+                      <input {...register('year_of_study')}
+                      name="year_of_study"
                         type="date"
                         className={styles.formControl}
                         id="year_of_study"
@@ -212,7 +228,8 @@ const MainForm = () => {
                       >
                         Phone Number
                       </label>
-                      <input
+                      <input {...register('phone_number')}
+                      name="phone_number"
                         type="tel"
                         className={styles.formControl}
                         id="phone_number"
@@ -246,7 +263,8 @@ const MainForm = () => {
                       >
                         Startup Name
                       </label>
-                      <input
+                      <input {...register('startup_name')}
+                      name="startup_name"
                         type="text"
                         className={styles.formControl}
                         id="startup_name"
@@ -266,7 +284,8 @@ const MainForm = () => {
                       >
                         Industry Sector
                       </label>
-                      <input
+                      <input {...register('industry_sector')}
+
                         type="text"
                         className={styles.formControl}
                         id="industry_sector"
@@ -283,7 +302,8 @@ const MainForm = () => {
                   <label htmlFor="description" className={styles.formLabel}>
                     Brief Description
                   </label>
-                  <textarea
+                  <textarea {...register('description')}
+                  name="description"
                     className={styles.formControl}
                     id="description"
                     onChange={updateProgress}
@@ -300,7 +320,8 @@ const MainForm = () => {
                   >
                     Problem Statement And Solution
                   </label>
-                  <textarea
+                  <textarea {...register('problemStatementAndSolution')}
+                  name="problemStatementAndSolution"
                     className={styles.formControl}
                     id="problemStatementAndSolution"
                     onChange={updateProgress}
@@ -319,7 +340,8 @@ const MainForm = () => {
                       >
                         Current Stage
                       </label>
-                      <textarea
+                      <textarea {...register('currentStage')}
+                      name="currentStage"
                         className={styles.formControl}
                         id="currentStage"
                         placeholder="Idea, Prototype, MVP, Revenue Generate"
@@ -338,7 +360,8 @@ const MainForm = () => {
                       >
                         Website/Social Media
                       </label>
-                      <textarea
+                      <textarea {...register('website_socialMedia')}
+                      name="website_socialMedia"
                         type="url"
                         className={styles.formControl}
                         id="website_socialMedia"
@@ -362,9 +385,10 @@ const MainForm = () => {
                   <div className="col-md-6">
                     <div className="mb-3">
                       <label htmlFor="checkboxId" className={styles.formLabel}>
-                        Functioing Required
+                        Functioning Required
                       </label>
-                      <input
+                      <input {...register('checkboxId')}
+                      name="checkboxId"
                         type="checkbox"
                         className={styles.formcheckinput}
                         id="checkboxId"
@@ -384,7 +408,8 @@ const MainForm = () => {
                       >
                         Expected Investment
                       </label>
-                      <textarea
+                      <textarea {...register('industry_sector')}
+                      name="industry_sector"
                         className={styles.formControl}
                         id="industry_sector"
                         rows="3"
@@ -401,7 +426,8 @@ const MainForm = () => {
                   <label htmlFor="revenue_model" className={styles.formLabel}>
                     Revenue Model
                   </label>
-                  <textarea
+                  <textarea {...register('revenue_model')}
+                  name="revenue_model"
                     className={styles.formControl}
                     id="revenue_model"
                     onChange={updateProgress}
@@ -419,7 +445,8 @@ const MainForm = () => {
                       >
                         Competition Anaylysis
                       </label>
-                      <textarea
+                      <textarea {...register('competition_analysis')}
+                      name="competition_analysis"
                         className={styles.formControl}
                         id="competition_analysis"
                         placeholder="Existing Competitor,Market Size etc...."
@@ -442,44 +469,28 @@ const MainForm = () => {
 
 
                 <div className="row">
-                  {/* Office Space Section */}
+                  {/* Office Space */}
 
 
-                  <div className="col-md-4">
-                    <label className="form-label fw-bold">Office Space</label>
-
-
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id="cabin"
-                        checked={selectedOfficeSpace === "cabin"}
-                        onChange={(e) => {
-                          handleOfficeSpaceChange(e);
-                          updateProgress();
-                        }}
-                      />
-                      <label className="form-check-label" htmlFor="cabin">
-                        Cabin
+                  <div className="mb-3">
+                      <label htmlFor="office_space" className={styles.formLabel}>
+                        Office Space
                       </label>
-                    </div>
-
-
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id="bench"
-                        checked={selectedOfficeSpace === "bench"}
-                        onChange={(e) => {
-                          handleOfficeSpaceChange(e);
-                          updateProgress();
-                        }}
-                      />
-                      <label className="form-check-label" htmlFor="bench">
-                        Bench
-                      </label>
+                      <select {...register('office_space')}
+                      name="office_space"
+                        className={styles.formControl}
+                        id="office_space"
+                        onChange={updateProgress}
+                        required
+                      >
+                        <option value="" disabled hidden>
+                          Select office_space
+                        </option>
+                        <option value="A">Cabin</option>
+                        <option value="B">Bench</option>
+                        <option value="B">none</option>
+                        
+                      </select>
                     </div>
                   </div>
 
@@ -492,7 +503,8 @@ const MainForm = () => {
 
 
                     <div className="form-check">
-                      <input
+                      <input {...register('yes_mentorship')}
+                      name="yes_mentorship"
                         type="checkbox"
                         className="form-check-input"
                         id="yes_mentorship"
@@ -512,7 +524,8 @@ const MainForm = () => {
 
 
                     <div className="form-check">
-                      <input
+                      <input {...register('no_mentorship')}
+                      name="no_mentorship"
                         type="checkbox"
                         className="form-check-input"
                         id="no_mentorship"
@@ -540,7 +553,8 @@ const MainForm = () => {
 
 
                     <div className="form-check">
-                      <input
+                      <input {...register('yes_networking')}
+                      name="yes_networking"
                         type="checkbox"
                         className="form-check-input"
                         id="yes_networking"
@@ -560,7 +574,8 @@ const MainForm = () => {
 
 
                     <div className="form-check">
-                      <input
+                      <input {...register('no_networking')}
+                        name="no_networking"
                         type="checkbox"
                         className="form-check-input"
                         id="no_networking"
@@ -579,7 +594,7 @@ const MainForm = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              
             </section>
 
 
