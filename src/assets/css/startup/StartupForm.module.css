@@ -1,0 +1,149 @@
+/* body {
+  background-color: #f9fafb;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+} */
+
+.containerForm {
+  max-width: 900px;
+}
+
+.formSection {
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.formSection h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.formLabel {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.formLabel:after {
+  content: " *";
+  color: red;
+}
+
+.formLabel:not([for$="*"]):after {
+  display: none;
+}
+
+.uploadBox {
+  text-align: center;
+  cursor: pointer;
+}
+
+.uploadIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #686e79;
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+.btnUpload {
+  border: 1px solid #6b7280;
+  color: #1a1f36;
+  margin-left: 20px;
+}
+
+.btnUpload:hover {
+  background-color: #ced4da;
+  color: black;
+}
+
+.formControl,
+.formSelect {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #1a1f36;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.5px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.formControl:focus,
+.formSelect:focus {
+  border-color: #1a1f36;
+  box-shadow: 0 0 0 0.25rem rgba(26, 31, 54, 0.25);
+  outline: 0;
+}
+
+.formButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btnPrimary {
+  background-color: #1a1f36;
+  border-color: #1a1f36;
+  padding: 8px 24px;
+  color: white;
+}
+
+.btnPrimary:hover {
+  background-color: #272f58;
+  border-color: #51a1cf;
+  color: lightgrey;
+}
+
+.btnLight {
+  padding: 8px 24px;
+  border-style: solid;
+  border-color: #1a1f36;
+}
+
+.btnLight:hover {
+  background-color: #ced4da;
+}
+
+textarea.formControl {
+  resize: none;
+}
+
+@media (max-width: 576px) {
+  .containerForm {
+    width: 95%;
+    height: 95%;
+  }
+
+  .textCenter {
+    font-size: 22px;
+  }
+
+  .textMuted {
+    font-size: 15px;
+  }
+}

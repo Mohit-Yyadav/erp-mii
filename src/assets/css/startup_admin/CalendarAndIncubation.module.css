@@ -1,0 +1,40 @@
+.calendarAndIncubation {
+  margin-top: 10px;
+}
+
+.calendarSection, .incubationSection {
+  margin-bottom: 10px;
+}
+
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.text-decoration-underline {
+  text-decoration: underline;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.incubationContainer {
+  border-radius: 12px;
+  background-color:#F7F9FB;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1020px) {
+  .calendarAndIncubation {
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}

@@ -1,250 +1,628 @@
-import React from 'react'
-import '../assets/css/style.css'
+import React, { useState } from "react";
+import styles from "../assets/css/MainForm.module.css";
+import {useForm } from "react-hook-form";
+import axios from "../../utils/Axios"
+
+
+
+
 
 const MainForm = () => {
-  return (
-    <>
-  <form className='form-body'>
+  const [progress, setProgress] = useState(0);
+const {register,handleSubmit,reset} = useForm();
 
-<div className="container mt-5" >
-
-  <div id="header-text" className="text-center text-white w-full">
+const submitData = async (data)=>{ 
+  if(isNotEmpty(data)){
+    try {
+      const result = await axios.post("/api/mainfrom/insert-data");
+      console.log(result);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  reset()
+  reset()
+}
+ 
     
-    <h2 className="text-decoration-underline mb-5">Startup Registration Form</h2>
 
-    <div className="container mt-4 position-relative" style={{width:"63%"}}>
-      <div className="progress-labels text-white d-flex justify-content-between px-2"
-        style={{position: "absolute", width: "100%", top: "-25px"}}>
-        <span>Personal</span>
-        <span>Startup</span>
-        <span>Business</span>
-        <span>Facility</span>
-      </div>
+  const updateProgress = () => {
+    let completedSections = 0;
+  
+    // Personal Details
+    const fullName = document.getElementById("name")?.value.trim();
+    const email = document.getElementById("email")?.value.trim();
+    const studentId = document.getElementById("StudentId")?.value.trim();
+    const phone = document.getElementById("phone_number")?.value.trim();
+  
+    if (fullName && email && studentId && phone) {
+      completedSections++;
+    }
+  
+    // Startup Details
+    const startupName = document.getElementById("startup_name")?.value.trim();
+    const industrySector = document.getElementById("industry_sector")?.value.trim();
+    const description = document.getElementById("description")?.value.trim();
+    const problemStatement = document.getElementById("problemStatementAndSolution")?.value.trim();
+    const currentStage = document.getElementById("current_stage")?.value.trim();
+    const website = document.getElementById("website_socialMedia")?.value.trim(); 
+  
+    if (startupName && industrySector && description && problemStatement && currentStage && website) {
+      completedSections++;
+    }
+  
+    // Business Details
+    const revenueModel = document.getElementById("revenue_model")?.value.trim();
+    const expectedInvestment = document.getElementById("expected_investment")?.value.trim();
+    const competitionAnalysis = document.getElementById("competition_analysis")?.value.trim();
+  
+    if (revenueModel && expectedInvestment && competitionAnalysis) {
+      completedSections++;
+    }
+  
+    // Facilities Required
+    const officeSpace = document.querySelector("input[name='office_space']:checked");
+    const mentorship = document.querySelector("input[name='mentorship']:checked");
+    const networking = document.querySelector("input[name='networking']:checked");
+  
+    if (officeSpace && mentorship && networking) {
+      completedSections++;
+    }
+  
+    setProgress(completedSections * 25);
+  };
+  
+  
 
-      <div className="progress">
-        <div id="progress-bar" className="progress-bar" role="progressbar" style={{width: "0%", background: "#374151"}}
-          aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-        </div>
-      </div>
-    </div>
-  </div>
+  const [selectedOfficeSpace, setSelectedOfficeSpace] = useState("");
+  const [selectedMentorship, setSelectedMentorship] = useState("");
+  const [selectedNetworking, setSelectedNetworking] = useState("");
 
-  <div className="container mt-5">
-    <section className="form-card  shadow-lg" id="section1">
-      <div className="card-body">
-        <h4 className="card-title mb-4 text-decoration-underline">
-          Personal Details
-        </h4>
 
-        <div className="row">
+  const handleOfficeSpaceChange = (event) => {
+    setSelectedOfficeSpace(event.target.id);
+  };
 
-          <div className="col-md-6">
-            <div className="mb-4">
-              <label htmlFor="name" className="form-label">Full Name</label>
-              <input type="text" className="form-control" id="name" placeholder required="Full Name" />
+
+  const handleMentorshipChange = (event) => {
+    setSelectedMentorship(event.target.id);
+  };
+
+
+  const handleNetworkingChange = (event) => {
+    setSelectedNetworking(event.target.id);
+  };
+
+
+  return (
+    
+    <>
+      <div className="container mt-5">
+        <form  action= "" onSubmit={handleSubmit(data=>submitData(data))} className={styles.formBody}>
+          <div className="container mt-5">
+            <div id="header-text" className={styles.headerText}>
+              <h2 className="text-decoration-underline mb-5 text-center">
+                Startup Registration Form
+              </h2>
             </div>
 
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email ID</label>
-              <input type="email" className="form-control" id="email" placeholder required="Email" />
+
+            <div className="progress mb-4">
+              <div
+                className="progress-bar bg-success"
+                role="progressbar"
+                style={{ width: `${progress}%` }}
+                aria-valuenow={progress}
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                {progress}%
+              </div>
             </div>
 
-            <div className="mb-3">
-              <label htmlFor="department" className="form-label">Department/Course</label>
-              <select className="form-select form-control custom-dropdown" id="department" placeholder
-                required="Select Department/Course">
-                <option value="" selected disabled hidden>
-                  Select Department/Course
-                </option>
-                <option value="A">Subject-1</option>
-                <option value="B">Subject-2</option>
-                <option value="C">Subject-3</option>
-                <option value="D">Subject-4</option>
-                <option value="E">Subject-5</option>
-              </select>
-            </div>
-          </div>
 
-          <div className="col-md-6">
-            <div className="mb-4">
-              <label htmlFor="studentID" className="form-label">Student ID</label>
-              <input type="text" className="form-control" id="studentID" placeholder required="Student ID" />
-            </div>
+            {/* Personal Details */}
+            <section className={styles.formCard}>
+              <div className="card-body">
+                <h4 className="card-title mb-4 text-decoration-underline">
+                  Personal Details
+                </h4>
 
-            <div className="mb-3">
-              <label htmlFor="phone_number" className="form-label">Phone Number</label>
-              <input type="tel" className="form-control" id="phone_number" placeholder required="Phone Number" />
-            </div>
 
-            <div className="mb-3">
-              <label htmlFor="year_of_study" className="form-label">Year of Study</label>
-              <input type="date" className="form-control" id="year_of_study" placeholder required="Year of Study" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+                <div className="row">
+                  {/* Left column */}
 
-  <div className="container mt-5">
-    <section className="form-card  shadow-lg" id="section2">
-      <div className="card-body">
-        <h4 className="card-title mb-4 text-decoration-underline">
-          Startup Details
-        </h4>
 
-        <div className="row">
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label htmlFor="startup_name" className="form-label">Startup Name</label>
-              <input type="text" className="form-control" id="startup_name" />
-            </div>
-          </div>
+                  <div className="col-md-6">
+                    <div className="mb-4">
+                      <label htmlFor="name" className={styles.formLabel}>
+                        Full Name
+                      </label>
+                      <input  {...register('name')} 
+                        type="text"
+                        className={styles.formControl}
+                        id="name"
+                        name="name"
+                        placeholder="Full Name"
+                        onChange={updateProgress}
+                        required
+                      />
+                    </div>
 
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label htmlFor="industry_sector" className="form-label">Industry Sector</label>
-              <input type="text" className="form-control" id="industry_sector" placeholder required="health.."  />
-            </div>
-          </div>
-        </div>
 
-        <div className="mb-2">
-          <label htmlFor="description" className="form-label">
-            Brief Description</label>
-          <textarea className="form-control" id required="description" rows="3"></textarea>
-        </div>
+                    <div className="mb-3">
+                      <label htmlFor="email" className={styles.formLabel}>
+                        Email ID
+                      </label>
+                      <input {...register('email')}
+                      name="email"
+                        type="email"
+                        className={styles.formControl}
+                        id="email"
+                        placeholder="Email"
+                        onChange={updateProgress}
+                        required
+                      />
+                    </div>
 
-        <div className="mb-3">
-          <label htmlFor="problemStatementAndSolution" className="form-label">Problem Statement And Solution</label>
-          <textarea className="form-control" id required="problemStatementAndSolution" rows="3"></textarea>
-        </div>
 
-        <div className="row">
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label htmlFor="current_stage" className="form-label">Current Stage</label>
-              <textarea className="form-control" id="current_stage" placeholder
-                required="Idea, Prototype, MVP, Revenue Generate" onInput="updateProgress()"></textarea>
-            </div>
-          </div>
+                    <div className="mb-3">
+                      <label htmlFor="department" className={styles.formLabel}>
+                        Department/Course
+                      </label>
+                      <select {...register('department')}
+                      name="department"
+                        className={styles.formControl}
+                        id="department"
+                        onChange={updateProgress}
+                        required
+                      >
+                        <option value="" disabled hidden>
+                          Select Department / Course
+                        </option>
+                        <option value="A">Subject-1</option>
+                        <option value="B">Subject-2</option>
+                        <option value="C">Subject-3</option>
+                        <option value="D">Subject-4</option>
+                        <option value="E">Subject-5</option>
+                      </select>
+                    </div>
+                  </div>
 
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label htmlFor="website/socialMedia" className="form-label">Website/Social Media</label>
-              <input type="url" className="form-control" id="website_socialMedia" onInput="updateProgress()" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-  <div className="container mt-5">
-    <section className="form-card  shadow-lg" id="section3">
-      <div className="card-body">
-        <h4 className="card-title mb-4 text-decoration-underline">
-          Buisness Details
-        </h4>
 
-        <div className="container mt-5">
-          <div className="row">
-            <div className="col-md-6">
-              <div className="mb-3">
-                <label htmlFor="checkboxId" className="form-label">Functioning Required</label>
-                <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id required="checkboxId" />
+                  {/* Right Column */}
+
+
+                  <div className="col-md-6">
+                    <div className="mb-4">
+                      <label htmlFor="StudentId" className={styles.formLabel}>
+                        Student ID
+                      </label>
+                      <input {...register('StudentId')}
+                        type="text"
+                        name="StudentId"
+                        className={styles.formControl}
+                        id="StudentId"
+                        placeholder="Student ID"
+                        onChange={updateProgress}
+                        required
+                      />
+                    </div>
+
+
+                    <div className="mb-4">
+                      <label
+                        htmlFor="year_of_study"
+                        className={styles.formLabel}
+                      >
+                        Year Of Study
+                      </label>
+                      <input {...register('year_of_study')}
+                      name="year_of_study"
+                        type="date"
+                        className={styles.formControl}
+                        id="year_of_study"
+                        placeholder="Year of Study"
+                        onChange={updateProgress}
+                        required
+                      />
+                    </div>
+
+
+                    <div className="mb-4">
+                      <label
+                        htmlFor="phone_number"
+                        className={styles.formLabel}
+                      >
+                        Phone Number
+                      </label>
+                      <input {...register('phone_number')}
+                      name="phone_number"
+                        type="tel"
+                        className={styles.formControl}
+                        id="phone_number"
+                        placeholder="Phone Number"
+                        onChange={updateProgress}
+                        required
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </section>
 
-            <div className="col-md-6">
-              <div className="mb-3">
-                <label htmlFor="expected_investment" className="form-label">Expected Investment</label>
-                <input type="text" className="form-control" id="industry_sector" placeholder required=" " />
+
+            {/* Startup Details */}
+
+
+            <section className={`${styles.formCard} mt-5`}>
+              <div className="card-body">
+                <h4 className="card-title mb-4 text-decoration-underline">
+                  Startup Details
+                </h4>
+
+
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="mb-3">
+                      <label
+                        htmlFor="startup_name"
+                        className={styles.formLabel}
+                      >
+                        Startup Name
+                      </label>
+                      <input {...register('startup_name')}
+                      name="startup_name"
+                        type="text"
+                        className={styles.formControl}
+                        id="startup_name"
+                        placeholder="Enter Startup Name"
+                        onChange={updateProgress}
+                        required
+                      />
+                    </div>
+                  </div>
+
+
+                  <div className="col-md-6">
+                    <div className="mb-3">
+                      <label
+                        htmlFor="industry_sector"
+                        className={styles.formLabel}
+                      >
+                        Industry Sector
+                      </label>
+                      <input {...register('industry_sector')}
+
+                        type="text"
+                        className={styles.formControl}
+                        id="industry_sector"
+                        placeholder="Enter Industry Sector"
+                        onChange={updateProgress}
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+
+                <div className="mb-2">
+                  <label htmlFor="description" className={styles.formLabel}>
+                    Brief Description
+                  </label>
+                  <textarea {...register('description')}
+                  name="description"
+                    className={styles.formControl}
+                    id="description"
+                    onChange={updateProgress}
+                    required
+                    rows="3"
+                  ></textarea>
+                </div>
+
+
+                <div className="mb-3">
+                  <label
+                    htmlFor="problemStatementAndSolution"
+                    className={styles.formLabel}
+                  >
+                    Problem Statement And Solution
+                  </label>
+                  <textarea {...register('problemStatementAndSolution')}
+                  name="problemStatementAndSolution"
+                    className={styles.formControl}
+                    id="problemStatementAndSolution"
+                    onChange={updateProgress}
+                    required
+                    rows="3"
+                  ></textarea>
+                </div>
+
+
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="mb-3">
+                      <label
+                        htmlFor="current_stage"
+                        className={styles.formLabel}
+                      >
+                        Current Stage
+                      </label>
+                      <textarea {...register('currentStage')}
+                      name="currentStage"
+                        className={styles.formControl}
+                        id="currentStage"
+                        placeholder="Idea, Prototype, MVP, Revenue Generate"
+                        onChange={updateProgress}
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+
+
+                  <div className="col-md-6">
+                    <div className="mb-3">
+                      <label
+                        htmlFor="website/socialMedia"
+                        className={styles.formLabel}
+                      >
+                        Website/Social Media
+                      </label>
+                      <textarea {...register('website_socialMedia')}
+                      name="website_socialMedia"
+                        type="url"
+                        className={styles.formControl}
+                        id="website_socialMedia"
+                        onChange={updateProgress}
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </section>
 
-          <div className="mb-2">
-            <label htmlFor="revenue_model" className="form-label">Revenue Model</label>
-            <textarea className="form-control" id required="revenue_model" rows="3"></textarea>
-          </div>
 
-          <div className="row">
-            <div className="col-md-6">
-              <div className="mb-3">
-                <label htmlFor="current_stage" className="form-label">Competition Analysis</label>
-                <textarea className="form-control" id="current_stage" placeholder
-                  required="Existing Competior, Market Size etc.." onInput="updateProgress()"></textarea>
+            {/* Business Details */}
+            <section className="card shadow-lg mt-5">
+              <div className="card-body">
+                <h4 className="card-title mb-4 text-decoration-underline">
+                  Business Details
+                </h4>
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="mb-3">
+                      <label htmlFor="checkboxId" className={styles.formLabel}>
+                        Functioning Required
+                      </label>
+                      <input {...register('checkboxId')}
+                      name="checkboxId"
+                        type="checkbox"
+                        className={styles.formcheckinput}
+                        id="checkboxId"
+                        placeholder="Enter Functioing Required"
+                        onChange={updateProgress}
+                        required
+                      />
+                    </div>
+                  </div>
+
+
+                  <div className="col-md-6">
+                    <div className="mb-3">
+                      <label
+                        htmlFor="expected_investment"
+                        className={styles.formLabel}
+                      >
+                        Expected Investment
+                      </label>
+                      <textarea {...register('industry_sector')}
+                      name="industry_sector"
+                        className={styles.formControl}
+                        id="industry_sector"
+                        rows="3"
+                        placeholder="Describe Revenue Model"
+                        onChange={updateProgress}
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div className="mb-2">
+                  <label htmlFor="revenue_model" className={styles.formLabel}>
+                    Revenue Model
+                  </label>
+                  <textarea {...register('revenue_model')}
+                  name="revenue_model"
+                    className={styles.formControl}
+                    id="revenue_model"
+                    onChange={updateProgress}
+                    rows="3"
+                  ></textarea>
+                </div>
+
+
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="mb-3">
+                      <label
+                        htmlFor="competition_analysis"
+                        className={styles.formLabel}
+                      >
+                        Competition Anaylysis
+                      </label>
+                      <textarea {...register('competition_analysis')}
+                      name="competition_analysis"
+                        className={styles.formControl}
+                        id="competition_analysis"
+                        placeholder="Existing Competitor,Market Size etc...."
+                        onChange={updateProgress}
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </section>
+
+
+            {/* Facility Required */}
+            <section className="card shadow-lg mt-5">
+              <div className="card-body">
+                <h4 className="card-title mb-4 text-decoration-underline">
+                  Facility Required
+                </h4>
+
+
+                <div className="row">
+                  {/* Office Space */}
+
+
+                  <div className="mb-3">
+                      <label htmlFor="office_space" className={styles.formLabel}>
+                        Office Space
+                      </label>
+                      <select {...register('office_space')}
+                      name="office_space"
+                        className={styles.formControl}
+                        id="office_space"
+                        onChange={updateProgress}
+                        required
+                      >
+                        <option value="" disabled hidden>
+                          Select office_space
+                        </option>
+                        <option value="A">Cabin</option>
+                        <option value="B">Bench</option>
+                        <option value="B">none</option>
+                        
+                      </select>
+                    </div>
+                  </div>
+
+
+                  {/* Mentorship Required Section */}
+                  <div className="col-md-4">
+                    <label className="form-label fw-bold">
+                      Mentorship Required
+                    </label>
+
+
+                    <div className="form-check">
+                      <input {...register('yes_mentorship')}
+                      name="yes_mentorship"
+                        type="checkbox"
+                        className="form-check-input"
+                        id="yes_mentorship"
+                        checked={selectedMentorship === "yes_mentorship"}
+                        onChange={(e) => {
+                          handleMentorshipChange(e);
+                          updateProgress();
+                        }}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor="yes_mentorship"
+                      >
+                        Yes
+                      </label>
+                    </div>
+
+
+                    <div className="form-check">
+                      <input {...register('no_mentorship')}
+                      name="no_mentorship"
+                        type="checkbox"
+                        className="form-check-input"
+                        id="no_mentorship"
+                        checked={selectedMentorship === "no_mentorship"}
+                        onChange={(e) => {
+                          handleMentorshipChange(e);
+                          updateProgress();
+                        }}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor="no_mentorship"
+                      >
+                        No
+                      </label>
+                    </div>
+                  </div>
+
+
+                  {/* Networking Support Section */}
+                  <div className="col-md-4">
+                    <label className="form-label fw-bold">
+                      Networking Support
+                    </label>
+
+
+                    <div className="form-check">
+                      <input {...register('yes_networking')}
+                      name="yes_networking"
+                        type="checkbox"
+                        className="form-check-input"
+                        id="yes_networking"
+                        checked={selectedNetworking === "yes_networking"}
+                        onChange={(e) => {
+                          handleNetworkingChange(e);
+                          updateProgress();
+                        }}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor="yes_networking"
+                      >
+                        Yes
+                      </label>
+                    </div>
+
+
+                    <div className="form-check">
+                      <input {...register('no_networking')}
+                        name="no_networking"
+                        type="checkbox"
+                        className="form-check-input"
+                        id="no_networking"
+                        checked={selectedNetworking === "no_networking"}
+                        onChange={(e) => {
+                          handleNetworkingChange(e);
+                          updateProgress();
+                        }}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor="no_networking"
+                      >
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+            </section>
+
+
+            {/* Submit Button */}
+            <div className="container mt-5 text-center">
+              <button
+                type="submit"
+                className={styles.btnPrimary}
+              >
+                Submit Application
+              </button>
             </div>
+
+
           </div>
-        </div>
+        </form>
       </div>
-    </section>
-  </div>
+    </>
+  );
+};
 
-  <div className="container mt-5">
-    <section className="form-card  shadow-lg" id="section4">
-      <div className="card-body">
-        <h4 className="card-title mb-4 text-decoration-underline">Facility Required</h4>
 
-        <div className="row d-flex align-items-center justify-content-between">
-
-          <div className="col-md-4 d-flex flex-column align-items-start">
-            <label className="form-label fw-bold mb-2">Office Space:</label>
-            <div className="d-flex gap-3">
-              <div className="form-check form-switch">
-                <input className="form-check-input" type="checkbox" id="cabin" />
-                <label className="form-check-label" htmlFor="cabin">Cabin</label>
-              </div>
-              <div className="form-check form-switch">
-                <input className="form-check-input" type="checkbox" id="bench" />
-                <label className="form-check-label" htmlFor="bench">Bench</label>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-4 d-flex flex-column align-items-start">
-            <label className="form-label fw-bold mb-2">Mentorship Required</label>
-            <div className="d-flex gap-3">
-              <div className="form-check form-switch">
-                <input className="form-check-input mentorship-switch" type="checkbox" id="yes_mentorship" />
-                <label className="form-check-label" htmlFor="yes_mentorship">Yes</label>
-              </div>
-              <div className="form-check form-switch">
-                <input className="form-check-input mentorship-switch" type="checkbox" id="no_mentorship" />
-                <label className="form-check-label" htmlFor="no_mentorship">No</label>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-4 d-flex flex-column align-items-start">
-            <label className="form-label fw-bold mb-2">Networking Support</label>
-            <div className="d-flex gap-3">
-              <div className="form-check form-switch">
-                <input className="form-check-input facility-switch" type="checkbox" id="additional_yes" />
-                <label className="form-check-label" htmlFor="additional_yes">Yes</label>
-              </div>
-              <div className="form-check form-switch">
-                <input className="form-check-input facility-switch" type="checkbox" id="additional_no" />
-                <label className="form-check-label" htmlFor="additional_no">No</label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </div>
-
-</div>
-
-<div className="container mt-5 mb-5 text-center">
-  <button type="submit" className="btn-primary" onClick="updateProgress()">Submit Application</button>
-</div>
-</form>
-    </>)
-}
-
-export default MainForm
+export default MainForm;
