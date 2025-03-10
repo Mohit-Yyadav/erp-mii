@@ -19,7 +19,7 @@ app.use(express.json());
 //routes
 app.use("/api/",mainRoutes)
 
-app.get('/', (req, res) => {
+app.get('/test', (req, res) => {
     res.status(200).send("<h1>Express app</h1>");
 });
 
