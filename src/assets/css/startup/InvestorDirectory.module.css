@@ -1,0 +1,196 @@
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.addButton {
+  background-color: #0d6efd;
+  border-radius: 4px;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+.investorCard {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.25rem;
+  position: relative;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.investorCard:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.menuButton {
+  background: transparent !important;
+  border: none !important;
+  color: #6c757d !important;
+  padding: 0 !important;
+}
+
+.menuButton::after {
+  display: none !important;
+}
+
+.menuButton:hover,
+.menuButton:focus {
+  color: #212529 !important;
+}
+
+.investorImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f0f0f0;
+}
+
+.investorName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.investorTitle {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.investorInfo {
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: end;
+  gap: 25px;
+  margin-top: 0.5rem;
+  border-top: 2px solid #ccc; 
+  padding-top: 0.5rem;
+}
+
+.viewButton,
+.editStatusButton {
+  background: transparent;
+  border: none;
+  color: #4B5563;
+  font-size: 0.9rem;
+  padding: 0;
+  text-decoration: none;
+}
+
+.viewButton:hover,
+.editStatusButton:hover {
+ color: #0d6efd;
+}
+
+.menuDropdown :global(.dropdown-menu) {
+  min-width: 8rem;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.menuDropdown :global(.dropdown-item) {
+  padding: 0.5rem 1rem;
+}
+
+.menuDropdown :global(.dropdown-item:hover) {
+  background-color: #f8f9fa;
+}
+
+/* Main container that fits between sidebar and notification panel */
+.mainContainer {
+  position: absolute;
+  left: 225px; /* Width of the sidebar */
+  right: 255px; /* Width of the notification panel */
+  top: 60px; /* Height of the navbar */
+  bottom: 0;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filtersContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.searchBox {
+  width: 100%;
+}
+
+.selectsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.investorsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 1400px) {
+  .investorsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .mainContainer {
+    right: 0; /* When notification panel is hidden on smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .selectsContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContainer {
+    left: 0; /* When sidebar is hidden on smaller screens */
+    padding: 15px;
+  }
+  
+  .headerContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .addButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .investorsGrid {
+    grid-template-columns: 1fr;
+  }
+}

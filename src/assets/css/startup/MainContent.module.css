@@ -1,0 +1,31 @@
+.main {
+  margin-left: 200px; /* Space for Sidebar */
+  margin-right: 250px; /* Space for Notification Sidebar */
+  margin-top: 60px; /* If you have a fixed navbar at top */
+  width: calc(100% - 450px); /* Left Sidebar (200px) + Right Notification Sidebar (250px) */
+  height: calc(100vh - 60px); /* Fill remaining height after Navbar */
+  overflow-y: auto; /* Scroll only if content is tall */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Adjustments for larger screens (like 1500px width) */
+@media (max-width: 1500px) {
+  .main {
+    margin-left: 200px; /* Keep space for Sidebar */
+    margin-right: 0; /* Remove right margin, space for notification sidebar is handled by fixed position */
+    width: calc(100% - 200px); /* Keep space for Sidebar */
+    max-width: 100%; /* Centering */
+    padding: 10px;
+  }
+}
+
+/* For smaller screens (like 768px) */
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0; /* No margin for smaller screens */
+    margin-right: 0;
+    width: 100%; /* Full width */
+    margin-top: 60px;
+  }
+}

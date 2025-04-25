@@ -1,0 +1,116 @@
+/* body {
+  background: #0f0f0f;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+} */
+
+.otpcontainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Credential Card Styling */
+.credentialsCard {
+  width: 400px;
+  max-width: 100%;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  overflow: visible;
+  margin-bottom: 20px; /* Space for OTP card */
+}
+
+/* Slide-up animation for OTP card */
+.otpCard {
+  opacity: 0;
+  position: relative;
+  width: 100%;
+  animation: slideUp 3s ease forwards;
+}
+
+/* When OTP is shown, slide up smoothly */
+.credentialsCard + .otpCard {
+  opacity: 1;
+}
+
+/* Input Field */
+.inputBox {
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  padding: 12px;
+  background: #f3f4f6;
+}
+
+/* OTP Input Styling */
+.otpBox {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+  background: #f3f4f6;
+  background-color: rgb(229, 231, 235);
+}
+
+.otpBox:focus {
+  border-color: #1e293b;
+}
+
+/* Button Styling */
+.customBtn {
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.customBtn:hover {
+  transform: translateY(-2px);
+}
+
+/* Resend OTP */
+.resendOtp {
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.resendOtp:hover {
+  text-decoration: underline;
+  color: #334155;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .credentialsCard {
+    width: 90%;
+  }
+
+  .otpBox {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Slide-Up Animation */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

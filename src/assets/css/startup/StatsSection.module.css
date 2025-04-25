@@ -1,0 +1,56 @@
+.statsSection {
+    margin-bottom: 1rem;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    }
+
+  .statCard {
+    height:120px;
+    width: 210px;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #A3A8D3, #EDEEFF);
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
+   transition: transform 0.3s ease-in-out;
+    }
+
+  .statCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  .statCard h5 {
+    color: #1C1C1C;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+  }
+
+  .statCard p{
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0%;
+    
+  }
+  
+  @media (max-width: 1500px) {
+    .statCard {
+      width: 90%;
+      max-width: 300px;
+      margin: 0 auto;
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+
+  
+
+
+
+ 
+
+
+
+

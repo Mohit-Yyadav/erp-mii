@@ -1,0 +1,79 @@
+
+.tableFacilityTable {
+    margin-bottom: 0;
+  }
+  
+  .tableFacilityTable thead th {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-weight: 500;
+    padding: 12px 15px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .tableFacilityTable tbody tr {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .tableFacilityTable tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  
+  .tableFacilityTable td {
+    padding: 15px;
+    vertical-align: middle;
+  }
+  
+  
+  .tableStatusBadge {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .tableStatusBadge.active {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: #198754;
+  }
+  
+  .tableStatusBadge.expired {
+    background-color: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+  }
+  
+  
+  .tableBiCalendar {
+    color: #6c757d;
+    margin-right: 5px;
+  }
+  
+  
+  .tableTableContainer {
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .tableFacilityTable td,
+    .facility-table th {
+      padding: 10px;
+    }
+  }
+  
+  /* Title Section */
+  .tableTitleSection {
+    padding: 15px 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .tableTableSection {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  

@@ -1,0 +1,198 @@
+    .investorBody {
+      background-color: #eaebec !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+  
+  .investorContainer {
+    max-width: 900px;
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .investorFormCard {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+  }
+  
+  .investorFormTitle {
+    text-align: center;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold !important;
+  }
+  
+  .investorFormSubtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 25px;
+  }
+  
+  .investorSectionCard {
+    border: 1px solid #dadee1;
+    border-radius: 8px;
+    padding: 20px 10px 20px 20px;
+    margin-bottom: 25px;
+    background-color: #fff;
+  }
+  
+  .investorSectionHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .investorSectionHeader i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  
+  .investorSectionHeader h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .investorFormRow {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    gap: 20px;
+  }
+  
+  .investorFormGroup {
+    flex: 1 1 300px;
+    margin-bottom: 8px;
+    padding-right: 15px;
+  }
+  
+  .investorSplitGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .investorHalf {
+    flex: 1;
+    padding-right: 0;
+  }
+  
+  .investorLabel {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .investorInput,
+  .investorSelect,
+  .investorTextarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .investorTextarea {
+    resize: vertical;
+  }
+  
+  .investorRadioGroup {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .investorRadioOption {
+    display: flex;
+    align-items: center;
+  }
+  
+  .investorRadioOption input {
+    margin-right: 5px;
+  }
+  
+  .investorUploadContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .investorProfilePreview {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  .investorFormActions {
+    display: flex;
+    gap: 20px;
+    justify-content: right;
+    flex-wrap: wrap;
+  }
+  
+  .investorFormActions button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .investorCancelBtn {
+    background-color: white;
+    color: black;
+  }
+  
+  .investorSubmitBtn {
+    background-color: black;
+    color: white;
+  }
+  
+  .investorCancelBtn:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .investorSubmitBtn:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  @media (max-width: 768px) {
+    .investorFormRow {
+      flex-direction: column;
+      gap: 5px;
+    }
+  
+    .investorFormGroup {
+      margin-bottom: 5px;
+      padding-right: 0;
+      flex-basis: 0px !important;
+    }
+  
+    .investorSectionCard {
+      padding: 15px !important;
+      margin-bottom: 15px;
+    }
+  
+    .investorFormActions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .investorSubmitBtn,
+    .investorCancelBtn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  

@@ -1,0 +1,122 @@
+/* Card styling */
+.startupCard {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    width: 100%; /* Changed from fixed 350px to 100% for responsiveness */
+    max-width: 320px; /* Added max-width to ensure cards aren't too large */
+  }
+  
+  .startupCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Status badge styling */
+  .statusBadge {
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  
+  /* Submit button styling */
+  .submitButton {
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  
+  .submitButton:hover {
+    background-color: #343a40;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .customPagination {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+    gap: 8px;
+  }
+  
+  .pageItem {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    width: 36px; /* Reduced from 40px */
+    height: 36px; /* Reduced from 40px */
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .pageItem:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .active {
+    background-color: #111827;
+    color: white;
+    box-shadow: 0 0 0 2px #11182730;
+  }
+  
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .startupCard {
+      margin-bottom: 1rem;
+      align-items: center;
+      max-width: 100%; /* Allow full width on mobile */
+    }
+  }
+  
+  /* Filter dropdown styling */
+  .dropdown-toggle::after {
+    margin-left: 0.5rem;
+  }
+  
+  .dropdown-menu {
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Search input styling */
+  .input-group {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+  }
+  
+  /* Added compact styling for better fit */
+  .compactUI h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .compactUI .card-body {
+    padding: 0.75rem;
+  }
+  
+  .compactUI .small {
+    font-size: 0.75rem;
+  }
+  

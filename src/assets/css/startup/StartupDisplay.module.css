@@ -1,0 +1,267 @@
+.profileContainer {
+  max-width: 900px;
+  height: auto;
+  margin: 20px auto;
+  padding: 0 15px;
+  margin-top: 80px;
+  /* padding: 59px 15px; */
+}
+
+.profileHeader {
+  background-color: white;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 5px;
+}
+
+.profileImg {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: white;
+}
+
+.badgeSkill {
+  background-color: #e6f0ff;
+  color: #075eb6;
+  font-weight: normal;
+  padding: 3px 12px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  border-radius: 19px;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.timelineItem {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 20px;
+}
+
+.timelineDot {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  background-color: #0d6efd;
+  border-radius: 50%;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 3px;
+  top: 18px;
+  bottom: -10px;
+  width: 8px;
+  background-color: #81b9f13a;
+  border-radius: 10px;
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.lastTimelineItem .timelineLine {
+  display: none;
+}
+
+.achievementIcon {
+  font-size: 24px;
+  color: #ffc107;
+  margin-right: 12px;
+}
+
+.contactBtn {
+  background-color: #0d6efd;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  padding: 7px 15px;
+}
+
+.contactBtn i {
+  font-size: 18px;
+}
+
+.contactBtn:active {
+  transform: scale(0.95);
+  background-color: #053dac;
+}
+
+.founderId {
+  font-size: 0.875rem;
+  color: #656e77;
+  background-color: #eaeef1;
+  padding: 3px 12px 3px 12px;
+  border-radius: 20px;
+}
+
+.sectionDivider {
+  margin: 24px 0;
+  border-top: 1px solid #e9ecef;
+}
+
+.infoIcon {
+  margin-right: 8px;
+}
+
+.pressIcon {
+  width: 50px;
+  height: 50px;
+  background-color: #ebedf0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.5rem;
+}
+
+.textSmall {
+  font-size: 0.9rem;
+  color: #656e77;
+}
+
+.textPrimary {
+  color: #007bff;
+}
+
+.textMuted {
+  color: #6c757d;
+}
+
+.achievementsContainer,
+.pressMentionsContainer {
+  padding: 10px;
+}
+
+.achievementBox,
+.pressBox {
+  background-color: #f4f5f7;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.achievementIcon,
+.pressIcon {
+  font-size: 20px;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.contactRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 180px;
+  margin-bottom: 8px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.textSmall {
+  font-size: 14px;
+}
+
+.contactItem a {
+  text-decoration: none;
+}
+
+.contactItem a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .profileHeader :global(.row) {
+    flex-direction: column;
+  }
+
+  .profileHeader :global(.col-auto) {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .profileHeader :global(.col) {
+    text-align: center;
+  }
+
+  .contactInfo :global(.row) {
+    display: block;
+  }
+
+  .contactInfo :global(.col-md-6) {
+    width: 100%;
+    margin-bottom: 6px;
+    align-items: center;
+  }
+
+  :global(.d-flex.justify-content-between.align-items-start) {
+    flex-direction: column;
+    align-items: center !important;
+  }
+
+  .contactBtn {
+    margin-top: 15px;
+    width: 100%;
+    justify-content: center;
+    max-width: none;
+  }
+
+  .achievementBox,
+  .pressBox {
+    margin-bottom: 15px;
+  }
+
+  .founderId {
+    margin-top: 10px;
+    display: inline-block;
+  }
+
+  :global(.card-body)
+    :global(.d-flex.justify-content-between.align-items-center) {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .infoItem {
+    width: 100%;
+  }
+}
+
+:global(body) {
+  background-color: #f5f5f5;
+}

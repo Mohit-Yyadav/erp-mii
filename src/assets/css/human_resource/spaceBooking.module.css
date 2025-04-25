@@ -1,0 +1,66 @@
+.spaceBookingCard {
+    border-radius: 10px;
+    background: #fff;
+    padding: 20px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.cardColor{
+    background-color:#F9FAFB;
+}
+
+.cardTitleButton{
+    background-color:#D1FAE5;
+    color:#047857 !important;
+     font-weight:600;
+      font-size:10px;
+}
+.cardText{
+    font-size:11px;
+     font-weight:500;
+}
+
+.spaceCardContainer{
+  padding:5em 7em 0 4em !important;
+  width: 68.5%;
+  margin-left: 14.4em;
+}
+  
+/* Remove padding on screens smaller than 768px */
+@media (max-width: 768px) {
+  .spaceCardContainer {
+    padding: 5em 0 0 0 !important;
+    margin-left: 0em !important;
+  }
+  .spaceCard{
+    margin-left: 7em;
+  }
+ .cardColor{
+  width: 16em;
+ } 
+}
+
+/* Tablet screens (600px to 900px) */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .spaceCard {
+    width: 26em;
+  }
+}
+
+/* Laptop screens (901px to 1200px) */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+  .spaceCard {
+    width: 26em;
+  }
+}
+
+/* Large screens (above 1200px) */
+@media screen and (min-width: 1201px) {
+  .spaceCard {
+    width: 26em;
+  }
+}

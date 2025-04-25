@@ -1,0 +1,230 @@
+.empBody {
+  font-family: Arial, sans-serif;
+  background-color: #f3f7fa;
+  color: #333;
+  line-height: 1.6;
+  margin : 0%;
+  padding: 1%;
+}
+
+.empContainer {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding:  15px;
+}
+
+/* Form Card Styles */
+.empFormCard {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+.empFormTitle {
+  text-align: center;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold !important;
+}
+
+.empFormSubtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 25px;
+}
+
+.empSectionCard {
+  border: 1px solid #dadee1;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  background-color: #fff;
+}
+
+.empSectionHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.empSectionHeader i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.empSectionHeader h5 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Form Layout */
+.empFormRow {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.empFormGroup {
+  flex: 1 1 300px;
+  margin-bottom: 15px;
+  padding-right: 15px;
+}
+
+.empSplitGroup {
+  display: flex;
+  gap: 15px;
+}
+
+.empHalf {
+  flex: 1;
+  padding-right: 0;
+}
+
+/* Form Controls */
+.empLabel {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.empInput[type="text"],
+.empInput[type="email"],
+.empInput[type="tel"],
+.empInput[type="date"],
+.empSelect,
+.empTextarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.empTextarea {
+  resize: vertical;
+}
+
+.empSelect {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 30px;
+}
+
+/* Date Input */
+.empDateInput {
+  position: relative;
+}
+
+.empCalendarIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Radio Buttons */
+.empRadioGroup {
+  display: flex;
+  gap: 15px;
+}
+
+.empRadioOption {
+  display: flex;
+  align-items: center;
+}
+
+.empRadioOption input {
+  margin-right: 5px;
+}
+
+/* Profile Picture Upload */
+.empUploadContainer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.empProfilePreview {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.empUploadBtn {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.empUploadBtn:hover {
+  background-color: #e9ecef;
+}
+
+.empFormActions {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+.empFormActions button {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+/* Cancel Button */
+.empCancelBtn {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+/* Submit Button */
+.empSubmitBtn {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
+
+/* Hover Effect */
+.empCancelBtn:hover {
+  background-color: black;
+  color: white;
+}
+
+.empSubmitBtn:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .empFormRow {
+    flex-direction: column;
+  }
+
+  .empFormGroup {
+    margin-bottom: 5px;
+    padding-right: 0;
+    flex-basis: 0px !important;
+  }
+
+  .empSplitGroup {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

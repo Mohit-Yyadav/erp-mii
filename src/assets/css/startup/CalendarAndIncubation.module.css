@@ -1,0 +1,39 @@
+.calendarAndIncubation {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.calendarSection, .incubationSection {
+  margin-bottom: 30px;
+  padding: 20px; 
+  height: 350px; 
+  }
+
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-color:#F7F9FB;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.text-decoration-underline {
+  text-decoration: underline;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+@media (max-width: 1500px) {
+  .calendarAndIncubation {
+    justify-items: center;
+    align-items: center;
+    flex-direction: row;
+  }
+}

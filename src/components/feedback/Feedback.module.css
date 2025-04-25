@@ -1,0 +1,54 @@
+.feedbackContainer {
+  padding-top: 70px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-top:80px;
+  
+  }
+  
+  .feedbackCard {
+    display: flex;
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.2s;
+  }
+  
+  .feedbackCard:hover {
+    transform: scale(1.02);
+  }
+  
+  .feedbackAvatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .feedbackTags .badge {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 15px;
+  }
+  
+  .feedbackLoadMore {
+    display: block;
+    margin: 20px auto;
+  }
+  .feedbackFilterOption {
+    border-radius: 4px !important;
+  }
+  .feedbackSortByButton {
+    display: flex;
+    justify-content: end;
+  }
+  
+  .feedbackBtn {
+    width: fit-content !important;
+  }
+  .feedbackCardBack {
+    background-color: rgb(240, 242, 244);
+  }
+  
