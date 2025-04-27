@@ -39,7 +39,7 @@ import  Feedback from "../components/feedback/Feedback.jsx";
 import MeetingDirectory from "../components/meetingSchedule/Meetingdirectory.jsx";
 import StartupPendingApprovalDirectory from "../components/startup/StartupPendingApprovalDirectory.jsx";
 
-
+import StartupDirectoryApproval from "../components/startup/StartupDirectoryApproval.jsx";
 
 const Startup = () => {
   return (
@@ -54,7 +54,8 @@ const Startup = () => {
       <Route path="/startup-display" element={<StartupDisplay />} />
       <Route path="/startup-attendance" element={<StartupAttendance />} />
       <Route path="/startup-Updated-Form" element={<StartupUpdatedForm />} />
-      <Route path="/startup-pending-directory" element={<StartupPendingApprovalDirectory/>}/>
+      <Route path="/startup-pending-approval-directory" element={<StartupPendingApprovalDirectory/>}/>
+      <Route path="/startup-pending-directory" element={<StartupDirectoryApproval/>}/>
 
       <Route path="/milestone-funtion" element={<MilestoneFunc />} />
 

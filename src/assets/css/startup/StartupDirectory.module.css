@@ -2,6 +2,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
+
 }
 
 .addButton {
@@ -175,7 +176,7 @@
 @media (max-width: 768px) {
   .mainContainer {
     left: 0; /* When sidebar is hidden on smaller screens */
-    padding: 15px;
+    padding: 25px;
   }
   
   .headerContainer {
