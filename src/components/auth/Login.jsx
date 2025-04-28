@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { React } from "react";
+import { React, useState } from "react";
 import logo from "../../assets/image/mii_logo.png";
 import illustration from "../../assets/image/bro.png";
 import { useForm } from "react-hook-form";
@@ -7,11 +7,14 @@ import axios from "../../../utils/Axios";
 import { toast } from "react-toastify";
 import styles from "../../assets/css/auth/Login.module.css";
 import { useNavigate } from "react-router-dom";
+import Loader from "../loader/Loader"
 
 const Login = ({ setSessionData }) => {
   const navigate = useNavigate()
   const { register, handleSubmit, reset } = useForm();
+  const [isLoading, setIsLoading] = useState(false);
   const submitData = async (data) => {
+    setIsLoading(true);
     try {
       const result = await axios.post("/api/auth/login", data);
       if (result) {
@@ -29,10 +32,17 @@ const Login = ({ setSessionData }) => {
     } catch (error) {
       toast.error(error);
     }
+   finally {
+    setIsLoading(false);
+  }
   };
 
   return (
     <div>
+      {isLoading && (
+       <Loader />
+      )}
+
       {<img src={logo} alt="MII Foundation Logo" className={styles.logo} />}
       <div className={`container ${styles.loginContainer}`}>
         <div className="row align-items-center">
