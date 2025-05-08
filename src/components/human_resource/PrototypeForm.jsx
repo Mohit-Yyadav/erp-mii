@@ -3,6 +3,7 @@ import styles from '../../assets/css/human_resource/PrototypeForm.module.css'
 
 function PrototypeForm() {
   const [profileImage, setProfileImage] = useState(null);
+  const { register, handleSubmit, reset } = useForm();
 
   return (
     <div className={styles.prototypeBody}>
