@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../utils/ContextApi';
 import { Navigate, Outlet } from 'react-router-dom';
+import Loader from '../components/loader/Loader'
 
 const PrivateRoute = ({ allowedRole }) => {
   const { user, role } = useAuth();
@@ -27,7 +28,7 @@ const PrivateRoute = ({ allowedRole }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  if (isChecking) return <div>Loading...</div>;
+  if (isChecking) return <Loader/>;
 
   // Not logged in
   if (!currentUser || !currentRole) {

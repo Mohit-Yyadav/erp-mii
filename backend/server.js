@@ -26,6 +26,9 @@ app.use(sessionConfig);
 // Public routes (Login, Register, Logout) should NOT require authentication
 
 const publicRoutes = ["/api/auth/login", 
+    "/api/mainform/insert-data",
+    "/api/mainform/update-data/:id",
+    "/api/mainform/delete-data/:id",
     "/api/auth/register",
      "/api/auth/logout",
      "/api/auth/send-otp",
@@ -50,9 +53,6 @@ const publicRoutes = ["/api/auth/login",
     "/api/taskCreation/insert-taskCreation",
     "/api/taskCreation/update-taskCreation",
     "/api/taskCreation/delete-taskCreation",
-
-
-
 ];
 
 
