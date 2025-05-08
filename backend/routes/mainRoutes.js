@@ -1,4 +1,4 @@
-import { deleteMainFormData, insertMainFormData,updateMainFormData } from '../controllers/mainController.js';
+import { deleteMainFormData, getMainFormData, getMainFormEdit, insertMainFormData,updateMainFormData } from '../controllers/mainController.js';
 
 
 
@@ -8,6 +8,8 @@ const  mainRoutes = new Router();
 // Add routes
 // routes.get('/', SessionController.store);
 mainRoutes.post('/mainform/insert-data', insertMainFormData);
+mainRoutes.get('/mainform/get-data',getMainFormData);
+mainRoutes.patch('/mainform/get-edit/:id',getMainFormEdit);
 mainRoutes.patch('/mainform/update-data/:id',updateMainFormData);
 mainRoutes.delete('/mainform/delete-data/:id',deleteMainFormData);
 // routes.put('/', SessionController.store);

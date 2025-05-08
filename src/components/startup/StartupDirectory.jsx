@@ -1,47 +1,30 @@
-
-
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import styles from "../../assets/css/startup/StartupDirectory.module.css";
 import { NavLink } from "react-router-dom";
+import axios from "../../../utils/Axios";
+import { toast } from "react-toastify";
+import Loader from "../loader/Loader";
 
 
 const StartupDirectory = () => {
-  const [startups, setStartups] = useState([
-    {
-      id: 1,
-      name: "TechVision AI",
-      logo: "/logos/techvision.png",
-      status: "Growth",
-      statusClass: styles.growth,
-      mentor: "Sarah Johnson",
-      email: "sarah.j@techvision.com",
-      industry: "Technology",
-      image: "/placeholder.svg?height=60&width=60",
-    },
-    {
-      id: 2,
-      name: "HealthTech Pro",
-      logo: "/logos/healthtech.png",
-      status: "Funded",
-      statusClass: styles.funded,
-      mentor: "Michael Chen",
-      email: "m.chen@healthtech.com",
-      industry: "Healthcare",
-      image: "/placeholder.svg?height=60&width=60",
-    },
-    {
-      id: 3,
-      name: "FinFlow",
-      logo: "/logos/finflow.png",
-      status: "Scaling",
-      statusClass: styles.scaling,
-      mentor: "Alex Thompson",
-      email: "alex.t@finflow.com",
-      industry: "Finance",
-      image: "/placeholder.svg?height=60&width=60",
-    },
-  ])
+  const [startups, setStartups] = useState([])
+
+  const fetchData = async()=>{
+    try {
+      const result = await axios.get("/api/mainform/get-data");
+      if (result) {
+        toast.success("Data Inserted Successfully");
+        setStartups(result.data.data);
+      }
+    } catch (error) {
+      toast.error("Error in getting form data", error);
+    }
+  }
+  useEffect(() => {
+    fetchData();
+  },[])
+
   const [searchTerm, setSearchTerm] = useState("")
   const [statusFilter, setStatusFilter] = useState("All Status")
   const [industryFilter, setIndustryFilter] = useState("All Industries")
@@ -51,34 +34,9 @@ const StartupDirectory = () => {
     setSearchTerm(e.target.value)
   }
 
-  const filteredStartups = startups.filter((startup) => {
-    const matchesSearch =
-      startup.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      startup.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      startup.mentor.toLowerCase().includes(searchTerm.toLowerCase())
 
-    const matchesStatus = statusFilter === "All Status" || startup.status === statusFilter
-    const matchesIndustry = industryFilter === "All Industries" || startup.industry === industryFilter
 
-    // For demo purposes, we'll just check if name contains "new" for new startups
-    const isNewStartup = startup.name.toLowerCase().includes("new")
-    const matchesStartupType =
-      startupTypeFilter === "All Startups" ||
-      (startupTypeFilter === "New Startups" && isNewStartup) ||
-      (startupTypeFilter === "Experienced Startups" && !isNewStartup)
-
-    return matchesSearch && matchesStatus && matchesIndustry && matchesStartupType
-  })
-
-  const handleDelete = (id) => {
-    setStartups(startups.filter((startup) => startup.id !== id))
-  }
-
-  const handleEdit = (id) => {
-    console.log(`Edit startup with id: ${id}`)
-  }
-
-  return (
+  return <Loader/> && (
     <div className={styles.mainContainer}>
          <div className={styles.headerContainer}>
         <h1 className={styles.title}>Startup Directory</h1>
@@ -130,8 +88,9 @@ const StartupDirectory = () => {
       </div>
 
      <div className={styles.startupGrid}>
-        {filteredStartups.map((startup) => (
-          <div key={startup.id} className={styles.startupCard}>
+        {startups?.map((startup,i) => {
+          return(
+          <div key={i} className={styles.startupCard} >
            <div className={styles.cardHeader}>
                 <div className="dropdown">
                   <button
@@ -159,21 +118,21 @@ const StartupDirectory = () => {
               </div>
 
               <div className="d-flex align-items-center mb-3 ">
-                <img src={startup.image || "/placeholder.svg"} alt={startup.name} className={styles.startupImage} />
+                <img src={startup.image || "/placeholder.svg"} alt={startup.personal_name} className={styles.startupImage} />
                 <div className="ms-3">
-                  <h5 className={styles.startupName}>{startup.name}</h5>
-                  <p className={styles.startupStatus}>{startup.status}</p>
+                  <h5 className={styles.startupName}>{startup.personal_name}</h5>
+                  <p className={styles.startupStatus}>{startup.stage}</p>
                 </div>
               </div>
 
               <div className={styles.startupInfo}>
                 <div className="d-flex align-items-center mb-2">
                   <i className="bi bi-person  me-2"></i>
-                  <span>Mentor: {startup.mentor}</span>
+                  <span>Mentor: {startup.mentorship}</span>
                 </div>
                 <div className="d-flex align-items-center mb-3">
                   <i className="bi bi-envelope me-2"></i>
-                  <span>{startup.email}</span>
+                  <span>{startup.email_id}</span>
                 </div>
               </div>
 
@@ -187,8 +146,8 @@ const StartupDirectory = () => {
                </NavLink>
               </div>
             </div>
-          
-        ))}
+          )
+        })}
       </div>
     </div>
   )
