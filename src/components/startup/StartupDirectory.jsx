@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react"
 
 import styles from "../../assets/css/startup/StartupDirectory.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import axios from "../../../utils/Axios";
 import { toast } from "react-toastify";
 import Loader from "../loader/Loader";
 
 
 const StartupDirectory = () => {
+  const location = useLocation();
+  const basePath = location.pathname.split('/')[1]
   const [startups, setStartups] = useState([])
 
   const fetchData = async()=>{
     try {
       const result = await axios.get("/api/mainform/get-data");
       if (result) {
-        toast.success("Data Inserted Successfully");
+        toast.success("Fetching Data Successfully");
         setStartups(result.data.data);
       }
     } catch (error) {
@@ -139,7 +141,7 @@ const StartupDirectory = () => {
               <div className={styles.cardFooter}>
                 <NavLink to ="/startup/startup-display" className={styles.viewButton}>View Details</NavLink>
                <NavLink 
-                 to="/startup/startup-Updated-Form" 
+                 to={`/${basePath}/startup-Updated-Form/` }
                  className={styles.editStatusButton}
                >
                  Edit Status
