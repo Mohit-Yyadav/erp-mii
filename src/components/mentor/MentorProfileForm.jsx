@@ -1,10 +1,15 @@
 import { useState } from "react";
 import React from "react";
 import styles from "../../assets/css/startup/MentorProfile.module.css";
+import { useForm } from "react-hook-form";
 
 function MentorProfileForm() {
   const [profileImage, setProfileImage] = useState(null);
-
+    const { register, handleSubmit, reset} = useForm();
+const submitData = (data) =>{
+  console.log(data)
+  data.preventDefault();
+}
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -25,7 +30,7 @@ function MentorProfileForm() {
           Please fill in all mandatory fields marked with *
         </p>
 
-        <form>
+        <form onSubmit={handleSubmit((data)=>submitData(data))}>
           {/* Personal Information Section */}
           <div className={styles.mentorSectionCard}>
             <div className={styles.mentorSectionHeader}>

@@ -1,13 +1,15 @@
   // import { useState } from "react";
 
   import styles from "../../assets/css/startup/MentorDirectory.module.css";
-  import { NavLink } from "react-router-dom";
+  import { NavLink, useLocation } from "react-router-dom";
   import axios from "../../../utils/Axios";
   import { toast } from "react-toastify";
   import Loader from "../loader/Loader";
   import { useEffect, useState } from "react";
 
   const MentorDirectory = () => {
+        const location = useLocation();
+        const basePath = location.pathname.split('/')[1];
     const [mentors, setMentors] = useState([]);
    
 
@@ -41,12 +43,12 @@
       console.log(`Edit mentor with id: ${id}`);
     };
 
-    return (
+    return Loader && (
       <div className="container">
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h1 className={styles.title}>Mentor Directory</h1>
           <NavLink
-            to="/startup/mentor-form"
+            to={`/${basePath}/mentor-form`}
             className={`btn btn-primary ${styles.addButton}`}
           >
             <i className="bi bi-plus"></i> Add Mentor Form
@@ -155,13 +157,13 @@
 
                 <div className={styles.cardFooter}>
                   <NavLink
-                    to="/startup/mentor-display"
+                    to={`/${basePath}/mentor-display`}
                     className={styles.viewButton}
                   >
                     View Detail
                   </NavLink>
                   <NavLink
-                    to="/startup/mentor-update-profile"
+                    to={`/${basePath}/mentor-update-profile`}
                     className={styles.editStatusButton}
                   >
                     Edit Status

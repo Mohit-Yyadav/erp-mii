@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react"
 import styles from "../../assets/css/startup/InvestorDirectory.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import axios from "../../../utils/Axios";
 import { toast } from "react-toastify";
 import Loader from "../loader/Loader";
 
 const InvestorDirectory = () => {
+    const location = useLocation();
+    const basePath = location.pathname.split('/')[1];
   const [investors, setInvestors] = useState([]);
 
   const fetchData = async () => {
     try {
       const result = await axios.get("/api/investorform/get_data");
       if (result) {
-        toast.success("Data Inserted Successfully");
+        toast.success("Data Display Successfully");
         setInvestors(result.data.data);
       }
     } catch (error) {
@@ -38,7 +40,7 @@ const InvestorDirectory = () => {
     >
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h1 className={styles.title}>Investor Directory</h1>
-        <NavLink to="/startup/investors-profile" className={`btn btn-primary ${styles.addButton}`}>
+        <NavLink to={`/${basePath}/investors-profile`} className={`btn btn-primary ${styles.addButton}`}>
           <i className="bi bi-plus"></i> Add Investor Form
       </NavLink>
       </div>
@@ -130,9 +132,9 @@ const InvestorDirectory = () => {
               </div>
 
               <div className={styles.cardFooter}>
-                <NavLink to= "/startup/investor-display "className={styles.viewButton}>View Details</NavLink>
+                <NavLink to={`/${basePath}/investor-display`}className={styles.viewButton}>View Details</NavLink>
                 <NavLink 
-                       to="/startup/investors-updated-profile"
+                       to={`/${basePath}/investors-updated-profile`}
   className={styles.editStatusButton}>
   Edit Status
 </NavLink>
