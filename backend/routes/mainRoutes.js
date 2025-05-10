@@ -9,7 +9,7 @@ const  mainRoutes = new Router();
 // routes.get('/', SessionController.store);
 mainRoutes.post('/mainform/insert-data', insertMainFormData);
 mainRoutes.get('/mainform/get-data',getMainFormData);
-mainRoutes.patch('/mainform/get-edit/:id',getMainFormEdit);
+mainRoutes.get('/mainform/get-edit/:id',getMainFormEdit);
 mainRoutes.patch('/mainform/update-data/:id',updateMainFormData);
 mainRoutes.delete('/mainform/delete-data/:id',deleteMainFormData);
 // routes.put('/', SessionController.store);

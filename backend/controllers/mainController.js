@@ -215,7 +215,7 @@ export const getMainFormData = async (req, res) => {
 
 export const getMainFormEdit = async (req, res) => {
   try {
-    const id = req.params.id;
+    const {id} = req.params;
     if (!id) {
       return res.status(404).send({
         success: false,
@@ -223,14 +223,13 @@ export const getMainFormEdit = async (req, res) => {
       });
     }
     // Updating data in the database
-    const data = await db.query(
-      `SELECT * from startup where id=?`,[id]
+    const [data] = await db.query(
+      `SELECT * from startup where id=? limit 1`,[id]
     );
-
     res.status(200).send({
       success: true,
       message: "Data UPDATED successfully",
-      data,
+      data : data[0]
     });
   } catch (error) {
     console.log(error);
