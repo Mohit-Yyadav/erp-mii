@@ -54,7 +54,13 @@ const publicRoutes = ["/api/auth/login",
     "/api/mentor/get-mentorEdit",
 
     "/api/mettingSchedule/scheduleMeeting",
+
     "/api/emp_data/emp_insert",
+    "/api/emp_data/update-data/:id",
+    "/api/emp_data/delete-data/:id",
+    "/api/emp_data/get-data",
+    "/api/emp_data/edit-data/:id",
+
     "/api/metric/insert-Metric",
     "/api/metric/update-Metric",
     "/api/metric/delete-Metric",

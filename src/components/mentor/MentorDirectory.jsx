@@ -9,8 +9,7 @@
 
   const MentorDirectory = () => {
     const [mentors, setMentors] = useState([]);
-    console.log(mentors)
-    console.log(setMentors)
+   
 
     useEffect(() => {
       fetchData();
