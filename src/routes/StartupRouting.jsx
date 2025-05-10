@@ -53,7 +53,7 @@ const Startup = () => {
       <Route path="/startup-Form" element={<StartupProfileForm />} />
       <Route path="/startup-display" element={<StartupDisplay />} />
       <Route path="/startup-attendance" element={<StartupAttendance />} />
-      <Route path="/startup-Updated-Form" element={<StartupUpdatedForm />} />
+      <Route path="/startup-Updated-Form/:id" element={<StartupUpdatedForm />} />
       <Route path="/startup-pending-approval-directory" element={<StartupPendingApprovalDirectory/>}/>
       <Route path="/startup-pending-directory" element={<StartupDirectoryApproval/>}/>
 

@@ -42,6 +42,7 @@ import MentorProfileUpdateForm from "../components/mentor/MentorProfileUpdateFor
 import  Feedback from "../components/feedback/Feedback.jsx";
 import MeetingDirectory from "../components/meetingSchedule/Meetingdirectory.jsx";
 import StartupPendingApprovalDirectory from "../components/startup/StartupPendingApprovalDirectory.jsx";
+import MainFormUpdate from '../components/startup/MainFormUpdate.jsx';
 
 const SuperAdminRouting = () => {
   return (
@@ -49,11 +50,12 @@ const SuperAdminRouting = () => {
          <Route path='/' element={<MainContent className={mainContentStyles.mainContent} />} />
      
          <Route path="/profile" element={<Profile />} />
+      <Route path="/main-form-update/:id" element={<MainFormUpdate />} />
       <Route path="/startup-directory" element={<StartupDirectory />} />
       <Route path="/startup-Form" element={<StartupProfileForm />} />
       <Route path="/startup-display" element={<StartupDisplay />} />
       <Route path="/startup-attendance" element={<StartupAttendance />} />
-      <Route path="/startup-Updated-Form" element={<StartupUpdatedForm />} />
+      <Route path="/startup-Updated-Form/:id" element={<StartupUpdatedForm />} />
       <Route path="/startup-pending-directory" element={<StartupPendingApprovalDirectory/>}/>
 
       <Route path="/milestone-funtion" element={<MilestoneFunc />} />
