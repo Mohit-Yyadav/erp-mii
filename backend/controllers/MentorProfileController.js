@@ -182,3 +182,58 @@ export const updateMentor = async (req, res) => {
     }
   };
   
+
+
+  // get mentor data in data
+
+  export const getMentor = async (req, res) => {
+    try {
+      // Updating data in the database
+      const result = await db.query(
+        `SELECT * from mentor_profile_form`
+      );
+      res.status(200).send({
+        success: true,
+        message: "Get All Data successfully",
+        data:result[0],
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        success: false,
+        message: "ERROR in Getting data",
+        error,
+      });
+    }
+  };
+  
+
+
+  export const getMentorEdit = async (req, res) => {
+  try {
+    const id = req.params.id;
+    if (!id) {
+      return res.status(404).send({
+        success: false,
+        message: "INVALID ID or provide ID",
+      });
+    }
+    // Updating data in the database
+    const data = await db.query(
+      `SELECT * from mentor_profile_form where id=?`,[id]
+    );
+
+    res.status(200).send({
+      success: true,
+      message: "Data UPDATED successfully",
+      data,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "ERROR in UPDATING data",
+      error,
+    });
+  }
+};

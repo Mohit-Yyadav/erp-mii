@@ -39,8 +39,20 @@ const publicRoutes = ["/api/auth/login",
     "/api/startupform/insert_data",
     "/api/startupform/update_data",
     "/api/startupProfile/delete-start",
+
+
     "/api/investorform/insert-data",
+    "/api/investorform/update-data/:id",
+    "/api/investorform/delete-data/:id",
+    "/api/investorform/getDataEidt/:id",
+    "/api/investorform/get_data",
+
     "/api/mentor/insert-profile",
+    "/api/mentor/insert-profile1/:id",
+    "/api/mentor/insert-profile2/:id",
+    "/api/mentor/get-mentor",
+    "/api/mentor/get-mentorEdit",
+
     "/api/mettingSchedule/scheduleMeeting",
     "/api/emp_data/emp_insert",
     "/api/metric/insert-Metric",

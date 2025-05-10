@@ -1,35 +1,28 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styles from "../../assets/css/startup/InvestorDirectory.module.css";
 import { NavLink } from "react-router-dom";
-
+import axios from "../../../utils/Axios";
+import { toast } from "react-toastify";
+import Loader from "../loader/Loader";
 
 const InvestorDirectory = () => {
-  const [investors, setInvestors] = useState([
-    {
-      id: 1,
-      name: "Sarah Johnson",
-      title: "Software Engineer",
-      company: "Tech Corp",
-      email: "sarah.j@techvision.com",
-      image: "/placeholder.svg?height=60&width=60",
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      title: "UI Designer",
-      company: "Tech Corp",
-      email: "m.chen@healthtech.com",
-      image: "/placeholder.svg?height=60&width=60",
-    },
-    {
-      id: 3,
-      name: "Sarah Johnson",
-      title: "Software Engineer",
-      company: "Tech Corp",
-      email: "sarah.j@techvision.com",
-      image: "/placeholder.svg?height=60&width=60",
-    },
-  ])
+  const [investors, setInvestors] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const result = await axios.get("/api/investorform/get_data");
+      if (result) {
+        toast.success("Data Inserted Successfully");
+        setInvestors(result.data.data);
+      }
+    } catch (error) {
+      toast.error(`Error in getting form data: ${error.message}`);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleDelete = (id) => {
     setinvestors(investors.filter((investor) => investor.id !== id))
@@ -85,7 +78,7 @@ const InvestorDirectory = () => {
       </div>
 
       <div className="row bg-light">
-        {investors.map((investor) => (
+        {investors?.map((investor,i) => (
           <div key={investor.id} className="col-md-6 col-lg-4 mb-4 mt-4">
             <div className={styles.investorCard}>
               <div className={styles.cardHeader}>
@@ -94,8 +87,24 @@ const InvestorDirectory = () => {
     <i className="bi bi-three-dots-vertical"></i>
   </button>
   <ul className="dropdown-menu" aria-labelledby="dropdown-investor-id">
-    <li><a className="dropdown-item" href="#" onclick="handleEdit(investorId)"><i className="bi bi-pencil me-2"></i>Edit</a></li>
-    <li><a className="dropdown-item" href="#" onclick="handleDelete(investorId)"><i className="bi bi-trash me-2"></i>Delete</a></li>
+  <li>
+  <button
+    type="button"
+    className="dropdown-item"
+    onClick={() => handleEdit(investor.id)}
+  >
+    <i className="bi bi-pencil me-2"></i>Edit
+  </button>
+</li>
+<li>
+  <button
+    type="button"
+    className="dropdown-item"
+    onClick={() => handleDelete(investor.id)}
+  >
+    <i className="bi bi-trash me-2"></i>Delete
+  </button>
+</li>
   </ul>
 </div>
 
@@ -112,11 +121,11 @@ const InvestorDirectory = () => {
               <div className={styles.investorinfo}>
                 <div className="d-flex align-items-center mb-2">
                   <i className="bi bi-building me-2"></i>
-                  <span>Company: {investor.company}</span>
+                  <span>Company: {investor.company_name}</span>
                 </div>
                 <div className="d-flex align-items-center mb-3">
                   <i className="bi bi-envelope me-2"></i>
-                  <span>{investor.email}</span>
+                  <span>{investor.email_ID}</span>
                 </div>
               </div>
 
@@ -124,8 +133,7 @@ const InvestorDirectory = () => {
                 <NavLink to= "/startup/investor-display "className={styles.viewButton}>View Details</NavLink>
                 <NavLink 
                        to="/startup/investors-updated-profile"
-  className={styles.editStatusButton}
->
+  className={styles.editStatusButton}>
   Edit Status
 </NavLink>
 
