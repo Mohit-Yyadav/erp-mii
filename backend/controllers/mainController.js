@@ -99,6 +99,7 @@ export const insertMainFormData = async (req, res) => {
 
 // UPDATING DATA
 export const updateMainFormData = async (req, res) => {
+  console.log(req.body)
   try {
     const id = req.params.id;
     if (!id) {
@@ -110,7 +111,6 @@ export const updateMainFormData = async (req, res) => {
 
     const {
       name,
-      studentID,
       email,
       phone_number,
       department,
@@ -132,49 +132,47 @@ export const updateMainFormData = async (req, res) => {
 
     // Updating data in the database
     const data = await db.query(
-      `UPDATE erp SET 
-        name = ?, 
-        studentID = ?, 
-        email = ?, 
-        phone_number = ?, 
-        department = ?, 
-        year_of_study = ?, 
-        startup_name = ?, 
-        industry_sector = ?, 
-        description = ?, 
-        problemStatementAndSolution = ?, 
-        currentStage = ?, 
-        website_socialMedia = ?, 
-        checkboxId = ?, 
-        expected_investment = ?, 
-        revenue_model = ?, 
-        competition_analysis = ?, 
-        office_space = ?, 
-        mentorship = ?, 
-        networking = ? 
-      WHERE id = ?`,
+      `UPDATE startup SET 
+  personal_name = ?,
+  email_id = ?,
+  phone = ?,
+  dept = ?,
+  year = ?,
+  startup_name = ?,
+  industry = ?,
+  description = ?,
+  problem_soln = ?,
+  stage = ?,
+  lwebsite = ?,
+  fun_required = ?,
+  invesment = ?,
+  revenue = ?,
+  analysis = ?,
+  office_space = ?,
+  mentorship = ?,
+  networking = ?
+WHERE id = ?`,
       [
-        name,
-        studentID,
-        email,
-        phone_number,
-        department,
-        year_of_study,
-        startup_name,
-        industry_sector,
-        description,
-        problemStatementAndSolution,
-        currentStage,
-        website_socialMedia,
-        checkboxId,
-        expected_investment,
-        revenue_model,
-        competition_analysis,
-        office_space,
-        mentorship,
-        networking,
-        id
-      ]
+  name,
+  email,
+  phone_number,
+  department,
+  year_of_study,
+  startup_name,
+  industry_sector,
+  description,
+  problemStatementAndSolution,
+  currentStage,
+  website_socialMedia,
+  checkboxId,
+  expected_investment,
+  revenue_model,
+  competition_analysis,
+  office_space,
+  mentorship,
+  networking,
+  id
+]
     );
 
     res.status(200).send({

@@ -8,11 +8,32 @@ import Loader from "../loader/Loader";
 
 const MainFormUpdate = () => {
   const [formData, setFormData] = useState();
+    const { register, handleSubmit, reset } = useForm();
   const { id } = useParams();
   const fetchData = async () => {
     try {
       const result = await axios.get(`/api/mainform/get-edit/${id}`);
       if (result) {
+         reset({
+          name: result.data.data.personal_name,
+          year_of_study: result.data.data.year,
+          department: result.data.data.dept,
+          phone_number: result.data.data.phone,
+          email: result.data.data.email_id,
+          startup_name: result.data.data.startup_name,
+          currentStage: result.data.data.stage,
+          industry_sector: result.data.data.industry,
+          website_socialMedia: result.data.data.lwebsite,
+          description: result.data.data.description,
+          problemStatementAndSolution: result.data.data.problem_soln,
+          checkboxId: result.data.data.fun_required,
+          expected_investment: result.data.data.invesment,
+          revenue_model: result.data.data.revenue,
+          competition_analysis: result.data.data.analysis,
+          office_space: result.data.data.office_space,
+          mentorship: result.data.data.mentorship,
+          networking: result.data.data.networking
+        });
         toast.success("Fetching edit Data Successfully");
         setFormData(result.data.data);
       }
@@ -24,38 +45,30 @@ const MainFormUpdate = () => {
     fetchData();
   }, []);
 
+  const submitData = async (data) => {
+    console.log(data);
+    try {
+      const result = await axios.put(`/api/mainform/update-data/${id}`, data);
+      if (result) {
+        toast.success("Data Updated Successfully");
+      }
+      reset(); // Reset the form after submission
+    } catch (error) {
+      toast.error("Error in updating form", error);
+    }
+  };
+
   const [profileImage, setProfileImage] = useState(
     "https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ="
   );
 
-  const [uploadedFile, setUploadedFile] = useState(null);
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      if (file.size > 5 * 1024 * 1024) {
-        toast.error("File size must be less than 5MB");
-        return;
-      }
-      setUploadedFile(file);
-      setProfileImage(URL.createObjectURL(file));
-    }
-  };
-
-  const { register, reset } = useForm();
-
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
+  });
+};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted Data:", formData);
-    if (uploadedFile) {
-      console.log("Uploaded Profile Image:", uploadedFile);
-    }
-  };
 
   return !formData ? (
     <Loader />
@@ -66,7 +79,7 @@ const MainFormUpdate = () => {
         Please fill in all mandatory fields marked with *
       </p>
 
-      <form className="startup-form" onSubmit={handleSubmit}>
+      <form className="startup-form" onSubmit={handleSubmit((data)=>submitData(data))}>
         {/* Personal Information Section */}
         <div className={styles.formSection}>
           <h2>
@@ -77,69 +90,35 @@ const MainFormUpdate = () => {
             <div className="col-md-6">
               <label className={styles.formLabel}>Full Name *</label>
               <input
+              {...register("name")}
                 type="text"
-                name="fullName"
+                name="name"
                 className={styles.formControl}
                 placeholder="place your full n ame"
                 required
-                value={formData.personal_name}
                 onChange={handleChange}
               />
             </div>
-            {/* <div className="col-md-6">
-              <label className={styles.formLabel}>Profile Picture</label>
-              <div
-                className={`${styles.uploadBox} col-md-6 d-flex align-items-center`}
-              >
-                <div className={`${styles.uploadIcon} col-md-6`}>
-                  <i className="bi bi-image"></i>
-                </div>
-
-                <img
-                  src={profileImage}
-                  alt="Profile"
-                  className="ms-3 rounded-circle"
-                  style={{ width: "64px", height: "64px", objectFit: "cover" }}
-                />
-
-                <button
-                  type="button"
-                  className={`${styles.btnUpload} btn ms-3`}
-                  onClick={() => document.getElementById("fileInput").click()}
-                >
-                  Edit
-                </button>
-
-                <input
-                  {...register("profile")}
-                  name="profile"
-                  id="fileInput"
-                  type="file"
-                  accept="image/*"
-                  style={{ display: "none" }}
-                  onChange={handleImageUpload}
-                />
-              </div>
-            </div> */}
 
             <div className="col-md-6">
   <label className={styles.formLabel}>Year of Study</label>
+  <span>: <b>{formData.year}</b></span>
   <input
+  {...register("year_of_study")}
     type="date"
     name="year"
     className={styles.formControl}
     required
-    value={formData.year}
     onChange={handleChange}
   />
 </div>
            <div className="col-md-6">
               <label className={styles.formLabel}>Department/Course</label>
               <select
+               {...register("department")}
                 name="industryType"
                 className={styles.formSelect}
                 required
-                value={formData.dept}
                 onChange={handleChange}
               >
                 <option value={formData.dept}>{formData.dept}</option>
@@ -151,65 +130,65 @@ const MainFormUpdate = () => {
             <div className="col-md-6">
               <label className={styles.formLabel}>Contact Number *</label>
               <input
+              {...register("phone_number")}
                 type="number"
-                name="contactNumber"
+                name="phone_number"
                 className={styles.formControl}
                 required
-                value={formData.phone}
               />
             </div>
             <div className="col-md-6">
               <label className={styles.formLabel}>Email Address *</label>
               <input
+              {...register("email")}
                 type="email"
                 name="email"
                 className={styles.formControl}
                 required
-                value={formData.email_id}
                 onChange={handleChange}
               />
             </div>
             <div className="col-md-6">
               <label className={styles.formLabel}>Startup Name</label>
               <input
-                type="email"
-                name="email"
+              {...register("startup_name")}
+                type="text"
+                name="startup_name"
                 className={styles.formControl}
                 required
-                value={formData.startup_name}
                 onChange={handleChange}
               />
             </div>
             <div className="col-md-6">
               <label className={styles.formLabel}>Current Stage</label>
               <input
-                type="email"
-                name="email"
+               {...register("currentStage")}
+                type="text"
+                name="currentStage"
                 className={styles.formControl}
                 required
-                value={formData.stage}
                 onChange={handleChange}
               />
             </div>
             <div className="col-md-6">
               <label className={styles.formLabel}>Industry Sector</label>
               <input
-                type="email"
-                name="email"
+              {...register("industry_sector")}
+                type="text"
+                name="industry_sector"
                 className={styles.formControl}
                 required
-                value={formData.industry}
                 onChange={handleChange}
               />
             </div>
             <div className="col-md-12">
               <label className={styles.formLabel}>Website/Social Media</label>
               <input
+              {...register("website_socialMedia")}
                 type="url"
-                name="linkedin"
+                name="website_socialMedia"
                 className={styles.formControl}
                 required
-                value={formData.lwebsite}
                 onChange={handleChange}
               />
             </div>
@@ -217,10 +196,10 @@ const MainFormUpdate = () => {
             <div className="col-12">
               <label className={styles.formLabel}>Brief Description</label>
               <textarea
-                name="address"
+              {...register("description")}
+                name="description"
                 className={styles.formControl}
                 rows="3"
-                value={formData.description}
                 onChange={handleChange}
               ></textarea>
             </div>
@@ -230,11 +209,11 @@ const MainFormUpdate = () => {
                 Problem Statement And Solution
               </label>
               <input
-                type="url"
-                name="linkedin"
+              {...register("problemStatementAndSolution")}
+                type="text"
+                name="problemStatementAndSolution"
                 className={styles.formControl}
                 required
-                value={formData.problem_soln}
                 onChange={handleChange}
               />
             </div>
@@ -250,11 +229,11 @@ const MainFormUpdate = () => {
             <div className="col-md-6">
               <label className={styles.formLabel}>Functioning Required</label>
               <input
+               {...register("checkboxId")}
                 type="checkbox"
                 name="founderId"
                 className={styles.formControl}
                 required
-                value={formData.fun_required}
                 checked={formData.fun_required == "1"}
                 onChange={handleChange}
               />
@@ -262,56 +241,43 @@ const MainFormUpdate = () => {
             <div className="col-md-6">
               <label className={styles.formLabel}>Expected Investment</label>
               <input
+              {...register("expected_investment")}
                 type="text"
-                name="companyName"
+                name="expected_investment"
                 className={styles.formControl}
                 required
-                value={formData.invesment}
                 onChange={handleChange}
               />
             </div>
             <div className="col-md-6">
               <label className={styles.formLabel}>Revenue Model</label>
               <input
+               {...register("revenue_model")}
                 type="text"
-                name="designation"
-                value={formData.revenue}
+                name="revenue_model"
                 className={styles.revenue}
                 required
                 onChange={handleChange}
               />
             </div>
             <div className="col-md-6">
-              <label className={styles.formLabel}>             
-                    Expected Investment
-              </label>
-              <input
-                type="text"
-                name="companyEstDate"
-                className={styles.formControl}
-                required
-                value={formData.invesment}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="col-md-6">
               <label className={styles.formLabel}>Competition Anaylysis</label>
               <input
-                type="url"
-                name="companyWebsite"
+              {...register("competition_analysis")}
+                type="text"
+                name="competition_analysis"
                 className={styles.formControl}
                 required
-                value={formData.analysis}
                 onChange={handleChange}
               />
             </div>
             <div className="col-md-6">
               <label className={styles.formLabel}>Office Space</label>
               <select
-                name="industryType"
+              {...register("office_space", { required: true })}
+                name="office_space"
                 className={styles.formSelect}
                 required
-                value={formData.office_space}
                 onChange={handleChange}
               >
                 <option value="">{formData.office_space}</option>
@@ -324,11 +290,11 @@ const MainFormUpdate = () => {
               <label className={styles.formLabel}>Mentorship Required</label>
               <div className="form-check">
                 <input
+                 {...register("mentorship", { required: true })}
                   type="radio"
                   id="mentorshipYes"
                   name="mentorshipRequired"
                   value="yes"
-                  checked={formData.mentorship == "yes"}
                   className={`form-check-input ${styles.mentorship}`}
                 />
                 <label htmlFor="mentorshipYes" className="form-check-label">
@@ -337,11 +303,11 @@ const MainFormUpdate = () => {
               </div>
               <div className="form-check">
                 <input
+                {...register("mentorship", { required: true })}
                   type="radio"
                   id="mentorshipNo"
                   name="mentorshipRequired"
                   value="no"
-                  checked={formData.mentorship == "no"}
                   className={`form-check-input ${styles.mentorship}`}
                 />
                 <label htmlFor="mentorshipNo" className="form-check-label">
@@ -353,11 +319,11 @@ const MainFormUpdate = () => {
               <label className={styles.formLabel}>Networking Support</label>
               <div className="form-check">
                 <input
+                {...register("networking", { required: true })}
                   type="radio"
                   id="NetworkingYes"
                   name="NetworkingRequired"
                   value="yes"
-                  checked={formData.networking == "yes"}
                   className={`form-check-input ${styles.mentorship}`}
                 />
                 <label htmlFor="NetworkingYes" className="form-check-label">
@@ -366,11 +332,11 @@ const MainFormUpdate = () => {
               </div>
               <div className="form-check">
                 <input
+                {...register("networking", { required: true })}
                   type="radio"
                   id="NetworkingNo"
                   name="NetworkingRequired"
                   value="no"
-                  checked={formData.networking == "no"}
                   className={`form-check-input ${styles.mentorship}`}
                 />
                 <label htmlFor="NetworkingNo" className="form-check-label">
@@ -382,86 +348,6 @@ const MainFormUpdate = () => {
             
           </div>
         </div>
-
-        {/* Professional Background */}
-        {/* <div className={styles.formSection}>
-          <h2>
-            <i className="bi bi-cash me-2"></i>Professional Background
-          </h2>
-          <div className="row g-3">
-            <div className="col-12">
-              <label className={styles.formLabel}>
-                Previous Work Experience
-              </label>
-              <textarea
-                name="workExperience"
-                className={styles.formControl}
-                rows="2"
-                value={formData.workExperience}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-            <div className="col-md-6">
-              <label className={styles.formLabel}>
-                Education Qualification *
-              </label>
-              <input
-                type="text"
-                name="education"
-                className={styles.formControl}
-                required
-                value={formData.education}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="col-md-6">
-              <label className={styles.formLabel}>Skills And Expertise *</label>
-              <select
-                name="skills"
-                className={styles.formSelect}
-                required
-                value={formData.skills}
-                onChange={handleChange}
-              >
-                <option value="">Select Skills</option>
-                <option>Leadership</option>
-                <option>Project Management</option>
-                <option>Communication</option>
-                <option>Problem Solving</option>
-                <option>Critical Thinking</option>
-                <option>Teamwork</option>
-                <option>Technical Proficiency</option>
-                <option>Data Analysis</option>
-                <option>Creativity</option>
-                <option>Time Management</option>
-              </select>
-            </div>
-            <div className="col-12">
-              <label className={styles.formLabel}>Notable Achievements</label>
-              <textarea
-                name="achievements"
-                className={styles.formControl}
-                rows="2"
-                value={formData.achievements}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-            <div className="col-12">
-              <label className={styles.formLabel}>Media/Press Mentions *</label>
-              <input
-                type="url"
-                name="mediaMentions"
-                className={styles.formControl}
-                placeholder="https://"
-                required
-                value={formData.mediaMentions}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-        </div> */}
-
-        {/* Form Buttons */}
         <div
           className={`${styles.formButtons} d-flex justify-content-end gap-3 mt-4`}
         >
