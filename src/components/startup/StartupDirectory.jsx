@@ -139,7 +139,7 @@ const StartupDirectory = () => {
               </div>
 
               <div className={styles.cardFooter}>
-                <NavLink to ={`/${basePath}/startup-display`} className={styles.viewButton}>View Details</NavLink>
+                <NavLink to ={`/${basePath}/main-form-display/${startup.id}`} className={styles.viewButton}>View Details</NavLink>
                <NavLink 
                  to={`/${basePath}/main-form-update/${startup.id}` }
                  className={styles.editStatusButton}

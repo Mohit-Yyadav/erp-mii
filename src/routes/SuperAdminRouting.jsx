@@ -43,6 +43,7 @@ import  Feedback from "../components/feedback/Feedback.jsx";
 import MeetingDirectory from "../components/meetingSchedule/Meetingdirectory.jsx";
 import StartupPendingApprovalDirectory from "../components/startup/StartupPendingApprovalDirectory.jsx";
 import MainFormUpdate from '../components/startup/MainFormUpdate.jsx';
+import MainFormDisplay from '../components/startup/MainFormDisplay.jsx';
 
 const SuperAdminRouting = () => {
   return (
@@ -51,6 +52,7 @@ const SuperAdminRouting = () => {
      
          <Route path="/profile" element={<Profile />} />
       <Route path="/main-form-update/:id" element={<MainFormUpdate />} />
+      <Route path="/main-form-display/:id" element={<MainFormDisplay />} />
       <Route path="/startup-directory" element={<StartupDirectory />} />
       <Route path="/startup-Form" element={<StartupProfileForm />} />
       <Route path="/startup-display" element={<StartupDisplay />} />
