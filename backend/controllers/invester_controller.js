@@ -25,6 +25,7 @@ export const insertInvestor = async (req, res) => {
 
        const validationError = checkMissingFields(requiredFields, req.body);
        if (validationError) {
+        console.log(validationError)
            return res.status(400).json(validationError);
        }
 
