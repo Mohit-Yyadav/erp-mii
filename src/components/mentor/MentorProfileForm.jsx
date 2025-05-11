@@ -2,25 +2,59 @@ import { useState } from "react";
 import React from "react";
 import styles from "../../assets/css/startup/MentorProfile.module.css";
 import { useForm } from "react-hook-form";
+import axios from "../../../utils/Axios";
+import { toast } from "react-toastify";
 
 function MentorProfileForm() {
   const [profileImage, setProfileImage] = useState(null);
-    const { register, handleSubmit, reset} = useForm();
-const submitData = (data) =>{
-  console.log(data)
-  data.preventDefault();
-}
+ const { register, handleSubmit, reset} = useForm();
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setProfileImage(e.target.result);
-      };
-      reader.readAsDataURL(file);
+      // Ensure the file is within the allowed size (e.g., 5MB limit)
+      if (file.size > 5 * 1024 * 1024) {
+        toast.error("File size must be less than 5MB");
+        return;
+      }
+      setProfileImage(file); // ✅ Store file directly
     }
   };
+
+  const submitData = async (data) => {
+
+    const formData = new FormData();
+  
+    // Append all form fields to FormData
+    Object.keys(data).forEach((key) => {
+      formData.append(key, data[key]);
+    });
+  
+    // Append the profile image if uploaded
+    if (profileImage) {
+      formData.append("img", profileImage);
+    }
+
+      // ✅ Log FormData before sending the request
+
+  
+
+    try {
+      const result = await axios.post("/api/mentor/insert-profile", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+     if(result){
+      reset();
+      toast.success(result.data.message);
+     }
+    } catch (error) {
+      console.error("Error Details:", error.response || error.message);
+      toast.error("Error in Submitting form");
+    }
+  };
+
 
   return (
     <div className={styles.mentorBody}>
@@ -30,7 +64,7 @@ const submitData = (data) =>{
           Please fill in all mandatory fields marked with *
         </p>
 
-        <form onSubmit={handleSubmit((data)=>submitData(data))}>
+        <form  onSubmit={handleSubmit((data)=>submitData(data))}>
           {/* Personal Information Section */}
           <div className={styles.mentorSectionCard}>
             <div className={styles.mentorSectionHeader}>
@@ -46,6 +80,7 @@ const submitData = (data) =>{
                   id="fullName"
                   required
                   className={styles.mentorInput}
+                  {...register('name')}
                 />
               </div>
 
@@ -98,6 +133,7 @@ const submitData = (data) =>{
               <div className={styles.mentorFormGroup}>
                 <label htmlFor="dateOfBirth">Date of Birth *</label>
                 <input
+                {...register('DOB')}
                   type="date"
                   id="dateOfBirth"
                   required
@@ -107,7 +143,7 @@ const submitData = (data) =>{
 
               <div className={styles.mentorFormGroup}>
                 <label htmlFor="gender">Gender *</label>
-                <select id="gender" required className={styles.mentorInput}>
+                <select {...register('gender')} id="gender" required className={styles.mentorInput}>
                   <option value="">Select Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -120,6 +156,7 @@ const submitData = (data) =>{
               <div className={styles.mentorFormGroup}>
                 <label htmlFor="contactNumber">Contact Number *</label>
                 <input
+                {...register('contact')}
                   type="tel"
                   id="contactNumber"
                   required
@@ -130,6 +167,7 @@ const submitData = (data) =>{
               <div className={styles.mentorFormGroup}>
                 <label htmlFor="emailAddress">Email Address *</label>
                 <input
+                {...register('email')}
                   type="email"
                   id="emailAddress"
                   required
@@ -141,6 +179,7 @@ const submitData = (data) =>{
             <div className={styles.mentorFormGroup}>
               <label htmlFor="linkedInProfile">LinkedIn Profile *</label>
               <textarea
+              {...register('linked_in')}
                 id="linkedInProfile"
                 rows="2"
                 className={styles.mentorTextarea}
@@ -150,6 +189,7 @@ const submitData = (data) =>{
             <div className={styles.mentorFormGroup}>
               <label htmlFor="permanentAddress">Permanent Address</label>
               <textarea
+              {...register('permanent_add')}
                 id="permanentAddress"
                 rows="4"
                 className={styles.mentorTextarea}
@@ -167,6 +207,7 @@ const submitData = (data) =>{
             <div className={styles.mentorFormGroup}>
               <label htmlFor="jobTitle">Job Title</label>
               <input
+              {...register('job_title')}
                 type="text"
                 id="jobTitle"
                 required
@@ -180,6 +221,7 @@ const submitData = (data) =>{
                   Education Qualification *
                 </label>
                 <input
+                {...register('edu_qual')}
                   type="text"
                   id="educationQualification"
                   required
@@ -190,6 +232,7 @@ const submitData = (data) =>{
               <div className={styles.mentorFormGroup}>
                 <label htmlFor="industryField">Industry/Field*</label>
                 <select
+                {...register('field')}
                   id="industryField"
                   required
                   className={styles.mentorInput}
@@ -206,6 +249,7 @@ const submitData = (data) =>{
             <div className={styles.mentorFormGroup}>
               <label htmlFor="companyOrganization">Company/Organization</label>
               <input
+              {...register('company')}
                 type="text"
                 id="companyOrganization"
                 required
@@ -225,6 +269,7 @@ const submitData = (data) =>{
               <div className={styles.mentorFormGroup}>
                 <label htmlFor="expertiseTopics">Expertise/Topics</label>
                 <input
+                {...register('topics')}
                   type="text"
                   id="expertiseTopics"
                   required
@@ -235,6 +280,7 @@ const submitData = (data) =>{
               <div className={styles.mentorFormGroup}>
                 <label htmlFor="availability">Availability *</label>
                 <input
+                {...register('availability')}
                   type="text"
                   id="availability"
                   className={styles.mentorInput}
@@ -245,6 +291,7 @@ const submitData = (data) =>{
             <div className={styles.mentorFormGroup}>
               <label htmlFor="personalWebsiteBlog">Personal Website/Blog</label>
               <input
+               {...register('per_website')}
                 type="text"
                 id="personalWebsiteBlog"
                 required
