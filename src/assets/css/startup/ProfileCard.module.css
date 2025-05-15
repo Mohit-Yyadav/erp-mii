@@ -1,379 +1,381 @@
 .appContainer {
-    background-color: #f8f9fa;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 20px 0;
-    margin: 6em;
-    margin-top: 3em;
-  }
-  /* Ensure icons are visible */
-  .detailIcon {
-    font-size: 1rem;
-    margin-right: 0.5rem;
-    color: inherit; /* Uses parent text color */
-  }
-  
-  /* LinkedIn icon special styling */
-  .linkedinIcon {
-    color: #0a66c2; /* LinkedIn blue */
-  }
-  /* Header Styles */
-  .headIcon {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 7% 20px;
-  }
-  
-  .iconContainer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .iconImgPlaceholder {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #6c757d;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-  }
-  
-  .iconText {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    margin: 0;
-  }
-  
-  .icons {
-    display: flex;
-    gap: 25px;
-  }
-  
-  .headerIcon {
-    font-size: 20px;
-    color: #000;
-    cursor: pointer;
-  }
-  
-  .divider {
-    margin: 0 7%;
-    border-top: 1px solid #e9ecef;
-  }
-  
-  /* Content Container */
-  .contentContainer {
-    width: 86%;
-    margin: 0 auto;
-  }
-  
-  /* Card Styles */
-  .profileCard,
-  .companyCard,
-  .timelineSkillsCard,
-  .pressCard {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
-    padding: 20px;
-  }
-  
-  /* Profile Section */
-  .profileCard {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .profileSection {
-    width: 25%;
-    text-align: center;
-    padding-right: 20px;
-  }
-  
-  .profileImageContainer {
-    margin-bottom: 15px;
-  }
-  
-  .profileImagePlaceholder {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-color: #6c757d;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 0 auto;
-    border: 3px solid #fff;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .profileName {
-    margin: 10px 0 5px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .profileTitle {
-    color: #6c757d;
-    font-size: 0.95rem;
-    margin: 0;
-  }
-  
-  /* Details Section */
-  .detailsSection {
-    width: 75%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-  
-  .detailItem {
-    display: flex;
-    align-items: flex-start;
-  }
-  
-  .detailIcon {
-    width: 16px;
-    margin-right: 12px;
-    margin-top: 4px;
-    color: #6c757d;
-  }
-  
-  .linkedinIcon {
-    color: #0077b5;
-  }
-  
-  .detailLabel {
-    color: #6c757d;
-    margin-right: 5px;
-    font-weight: 500;
-    font-size: 0.9rem;
-  }
-  
-  .linkedinLabel {
-    color: #0077b5;
-  }
-  
-  .detailValue {
-    color: #333;
-    font-weight: 400;
-  }
-  
-  /* Company Section */
-  .companyHeader {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .founderBadge {
-    display: inline-block;
-    font-size: 0.8rem;
-    background-color: #e7f1ff;
-    color: #0d6efd;
-    padding: 3px 10px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
-  .companyName {
-    font-weight: 600;
-    color: #333;
-    margin: 0;
-  }
-  
-  .companyDetails {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-  
-  /* Timeline & Skills */
-  .timelineSkillsCard {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .timelineSection {
-    width: calc(50% - 10px);
-  }
-  
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px 0;
+  /* margin: 6em; */
+  margin-top: 5em;
+  width: 60%;
+  margin-left: 270px;
+}
+/* Ensure icons are visible */
+.detailIcon {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  color: inherit; /* Uses parent text color */
+}
+
+/* LinkedIn icon special styling */
+.linkedinIcon {
+  color: #0a66c2; /* LinkedIn blue */
+}
+/* Header Styles */
+.headIcon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 7% 20px;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.iconImgPlaceholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #6c757d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.iconText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.icons {
+  display: flex;
+  gap: 25px;
+}
+
+.headerIcon {
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+}
+
+.divider {
+  margin: 0 7%;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Content Container */
+.contentContainer {
+  width: 86%;
+  margin: 0 auto;
+}
+
+/* Card Styles */
+.profileCard,
+.companyCard,
+.timelineSkillsCard,
+.pressCard {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+/* Profile Section */
+.profileCard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profileSection {
+  width: 25%;
+  text-align: center;
+  padding-right: 20px;
+}
+
+.profileImageContainer {
+  margin-bottom: 15px;
+}
+
+.profileImagePlaceholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #6c757d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 auto;
+  border: 3px solid #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profileName {
+  margin: 10px 0 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.profileTitle {
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Details Section */
+.detailsSection {
+  width: 75%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: flex-start;
+}
+
+.detailIcon {
+  width: 16px;
+  margin-right: 12px;
+  margin-top: 4px;
+  color: #6c757d;
+}
+
+.linkedinIcon {
+  color: #0077b5;
+}
+
+.detailLabel {
+  color: #6c757d;
+  margin-right: 5px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.linkedinLabel {
+  color: #0077b5;
+}
+
+.detailValue {
+  color: #333;
+  font-weight: 400;
+}
+
+/* Company Section */
+.companyHeader {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.founderBadge {
+  display: inline-block;
+  font-size: 0.8rem;
+  background-color: #e7f1ff;
+  color: #0d6efd;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.companyName {
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.companyDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Timeline & Skills */
+.timelineSkillsCard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.timelineSection {
+  width: calc(50% - 10px);
+}
+
+.skillsSection {
+  width: calc(50% - 10px);
+}
+
+.sectionTitle {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.sectionTitle:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #0d6efd;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline:before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  height: calc(100% - 10px);
+  width: 2px;
+  background-color: #e9ecef;
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.timelineMarker {
+  position: absolute;
+  left: -30px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #0d6efd;
+}
+
+.timelineContent h6 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.position {
+  color: #6c757d;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.timelineDate {
+  color: #adb5bd;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Skills */
+.skillsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.skillBadge {
+  background-color: #f1f3f5;
+  color: #495057;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+/* Achievements */
+.achievementItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.trophyIcon {
+  margin-right: 10px;
+  font-size: 1.1rem;
+  color: #ffc107;
+}
+
+/* Press Mentions */
+.pressContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pressItem {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.pressIcon {
+  width: 40px;
+  height: 40px;
+  background-color: #e9ecef;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: #6c757d;
+}
+
+.pressContent h6 {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.pressContent p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .profileSection,
+  .detailsSection,
+  .timelineSection,
   .skillsSection {
-    width: calc(50% - 10px);
+    width: 100%;
   }
-  
-  .sectionTitle {
-    color: #333;
-    font-weight: 600;
+
+  .profileSection {
     margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
+    padding-right: 0;
   }
-  
-  .sectionTitle:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 40px;
-    height: 3px;
-    background-color: #0d6efd;
-  }
-  
-  /* Timeline */
-  .timeline {
-    position: relative;
-    padding-left: 30px;
-  }
-  
-  .timeline:before {
-    content: '';
-    position: absolute;
-    left: 7px;
-    top: 5px;
-    height: calc(100% - 10px);
-    width: 2px;
-    background-color: #e9ecef;
-  }
-  
-  .timelineItem {
-    position: relative;
-    margin-bottom: 25px;
-  }
-  
-  .timelineMarker {
-    position: absolute;
-    left: -30px;
-    top: 5px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: #0d6efd;
-  }
-  
-  .timelineContent h6 {
-    font-weight: 600;
-    margin-bottom: 5px;
-  }
-  
-  .position {
-    color: #6c757d;
-    margin-bottom: 5px;
-    font-size: 0.9rem;
-  }
-  
-  .timelineDate {
-    color: #adb5bd;
-    font-size: 0.85rem;
-    margin: 0;
-  }
-  
-  /* Skills */
-  .skillsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .skillBadge {
-    background-color: #f1f3f5;
-    color: #495057;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-  }
-  
-  /* Achievements */
-  .achievementItem {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-  
-  .trophyIcon {
-    margin-right: 10px;
-    font-size: 1.1rem;
-    color: #ffc107;
-  }
-  
-  /* Press Mentions */
-  .pressContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
+
   .pressItem {
-    flex: 1;
-    min-width: 200px;
-    display: flex;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 15px;
+    min-width: 100%;
   }
-  
-  .pressIcon {
-    width: 40px;
-    height: 40px;
-    background-color: #e9ecef;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-    color: #6c757d;
+}
+
+@media (max-width: 768px) {
+  .detailsSection,
+  .companyDetails {
+    grid-template-columns: 1fr;
   }
-  
-  .pressContent h6 {
-    margin-bottom: 5px;
-    font-weight: 600;
+
+  .headIcon {
+    margin: 0 5% 20px;
   }
-  
-  .pressContent p {
-    margin: 0;
-    color: #6c757d;
-    font-size: 0.9rem;
+
+  .contentContainer {
+    width: 90%;
   }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 992px) {
-    .profileSection,
-    .detailsSection,
-    .timelineSection,
-    .skillsSection {
-      width: 100%;
-    }
-    
-    .profileSection {
-      margin-bottom: 20px;
-      padding-right: 0;
-    }
-    
-    .pressItem {
-      min-width: 100%;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .detailsSection,
-    .companyDetails {
-      grid-template-columns: 1fr;
-    }
-    
-    .headIcon {
-      margin: 0 5% 20px;
-    }
-    
-    .contentContainer {
-      width: 90%;
-    }
-  }
+}
