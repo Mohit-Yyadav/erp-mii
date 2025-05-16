@@ -75,9 +75,9 @@ const SuperAdminRouting = () => {
 
       <Route path="/mentor-attendance" element={<MentorAttendance />} />
       <Route path="/mentor-directory" element={<MentorDirectory />} />
-      <Route path="/mentor-display" element={<MentorDisplay />} />
+      <Route path="/mentor-display/:id" element={<MentorDisplay />} />
       <Route path="/mentor-form" element={<MentorProfileForm />} />
-      <Route path="/mentor-update-profile" element={<MentorProfileUpdateForm/>}/>
+      <Route path="/mentor-update-profile/:id" element={<MentorProfileUpdateForm/>}/>
 
       <Route path="/meetingSchedule/*" element={<MeetingSchedulePage />} />
       <Route path="/meeting-directory" element={<MeetingDirectory/>}/>

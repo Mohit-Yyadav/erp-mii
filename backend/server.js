@@ -51,6 +51,7 @@ const publicRoutes = ["/api/auth/login",
     "/api/mentor/insert-profile1/:id",
     "/api/mentor/insert-profile2/:id",
     "/api/mentor/get-mentor",
+    "/api/mentor/get-mentorView/:id",
     "/api/mentor/get-mentorEdit",
 
     "/api/mettingSchedule/scheduleMeeting",

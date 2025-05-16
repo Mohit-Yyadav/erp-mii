@@ -184,7 +184,35 @@ export const updateMentor = async (req, res) => {
       });
     }
   };
-  
+
+    export const getMentorView = async (req, res) => {
+  try {
+    const {id} = req.params;
+    if (!id) {
+      return res.status(404).send({
+        success: false,
+        message: "INVALID ID or provide ID",
+      });
+    }
+    // Updating data in the database
+    const [data] = await db.query(
+      `SELECT * from mentor_profile_form where id=? limit 1`,[id]
+    );
+    res.status(200).send({
+      success: true,
+      message: "Data UPDATED successfully",
+      data : data[0]
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "ERROR in UPDATING data",
+      error,
+    });
+  }
+};
+
 
 
   export const getMentorEdit = async (req, res) => {

@@ -157,16 +157,16 @@
 
                 <div className={styles.cardFooter}>
                   <NavLink
-                    to={`/${basePath}/mentor-display`}
+                    to={`/${basePath}/mentor-display/${mentor.id}`}
                     className={styles.viewButton}
                   >
                     View Detail
                   </NavLink>
                   <NavLink
-                    to={`/${basePath}/mentor-update-profile`}
+                    to={`/${basePath}/mentor-update-profile/${mentor.id}`}
                     className={styles.editStatusButton}
                   >
-                    Edit Status
+                    Edit Status {mentor.id}
                   </NavLink>
                 </div>
               </div>
