@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css"; // Required for icons
 import styles from "../../assets/css/startup/ProfileCard.module.css";
+import axios from "../../../utils/Axios";
+import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
+import Loader from "../loader/Loader";
 
 const MentorDisplay = ({ 
   profileData = {
