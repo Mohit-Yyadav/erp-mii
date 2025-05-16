@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from "react";
-import "bootstrap-icons/font/bootstrap-icons.css"; // Required for icons
+import React from "react";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import styles from "../../assets/css/startup/ProfileCard.module.css";
-import axios from "../../../utils/Axios";
-import { toast } from "react-toastify";
-import { useParams } from "react-router-dom";
-import Loader from "../loader/Loader";
 
 const MentorDisplay = ({ 
   profileData = {
@@ -41,58 +37,15 @@ const MentorDisplay = ({
     ]
   }
 }) => {
-  const getInitials = (name) => name.split(' ').map(part => part[0]).join('').toUpperCase();
-
-  const DetailItem = ({ icon, label, value, isLink = false, url = "", isLinkedIn = false }) => (
-    <div className={styles.detailItem}>
-      <i className={`bi bi-${icon} ${styles.detailIcon} ${isLinkedIn ? styles.linkedinIcon : ''}`} />
-      <div>
-        <span className={isLinkedIn ? styles.linkedinLabel : styles.detailLabel}>
-          {label}:
-        </span>
-        {isLink ? (
-          <a href={url} className={styles.detailValue}>{value}</a>
-        ) : (
-          <span className={styles.detailValue}>{value}</span>
-        )}
-      </div>
-    </div>
-  );
-
-  const TimelineItem = ({ title, position, period }) => (
-    <div className={styles.timelineItem}>
-      <div className={styles.timelineMarker}></div>
-      <div className={styles.timelineContent}>
-        <h6>{title}</h6>
-        <p className={styles.position}>{position}</p>
-        <p className={styles.timelineDate}>{period}</p>
-      </div>
-    </div>
-  );
-
-  const PressItem = ({ publication, title }) => (
-    <div className={styles.pressItem}>
-      <div className={styles.pressIcon}><i className="bi bi-newspaper" /></div>
-      <div className={styles.pressContent}>
-        <h6>{publication}</h6>
-        <p>{title}</p>
-      </div>
-    </div>
-  );
-
-  const AchievementItem = ({ icon, text }) => (
-    <div className={styles.achievementItem}>
-      <i className={`bi bi-${icon} ${styles.trophyIcon}`} />
-      <div>{text}</div>
-    </div>
-  );
+  // Get initials from name (only helper function we need)
+  const initials = profileData.name.split(' ').map(part => part[0]).join('').toUpperCase();
 
   return (
-    <div className={styles.appContainer} >
-      {/* Header */}
+    <div className={styles.appContainer}>
+      {/* Header with icons */}
       <div className={styles.headIcon}>
         <div className={styles.iconContainer}>
-          <div className={styles.iconImgPlaceholder}>{getInitials(profileData.name)}</div>
+          <div className={styles.iconImgPlaceholder}>{initials}</div>
           <p className={styles.iconText}>Mentor Profile</p>
         </div>
         <div className={styles.icons}>
@@ -104,31 +57,68 @@ const MentorDisplay = ({
 
       <hr className={styles.divider} />
 
-      {/* Main Content */}
+      {/* Main Content Area */}
       <div className={styles.contentContainer}>
-        {/* Profile Card */}
+        {/* Profile Section */}
         <div className={styles.profileCard}>
           <div className={styles.profileSection}>
-            <div className={styles.profileImageContainer}>
-              <div className={styles.profileImagePlaceholder}>
-                {getInitials(profileData.name)}
-              </div>
-            </div>
+            <div className={styles.profileImagePlaceholder}>{initials}</div>
             <h4 className={styles.profileName}>{profileData.name}</h4>
             <p className={styles.profileTitle}>{profileData.title}</p>
           </div>
 
           <div className={styles.detailsSection}>
-            <DetailItem icon="calendar2-date" label="DOB" value={profileData.personalInfo.dob} />
-            <DetailItem icon="envelope-fill" label="Email" value={profileData.personalInfo.email} />
-            <DetailItem icon="gender-ambiguous" label="Gender" value={profileData.personalInfo.gender} />
-            <DetailItem icon="linkedin" label="LinkedIn" value="View" isLinkedIn />
-            <DetailItem icon="telephone-fill" label="Phone" value={profileData.personalInfo.phone} />
-            <DetailItem icon="geo-alt-fill" label="Location" value={profileData.personalInfo.location} />
+            <div className={styles.detailItem}>
+              <i className={`bi bi-calendar2-date ${styles.detailIcon}`} />
+              <div>
+                <span className={styles.detailLabel}>DOB:</span>
+                <span className={styles.detailValue}>{profileData.personalInfo.dob}</span>
+              </div>
+            </div>
+            
+            <div className={styles.detailItem}>
+              <i className={`bi bi-envelope-fill ${styles.detailIcon}`} />
+              <div>
+                <span className={styles.detailLabel}>Email:</span>
+                <span className={styles.detailValue}>{profileData.personalInfo.email}</span>
+              </div>
+            </div>
+            
+            <div className={styles.detailItem}>
+              <i className={`bi bi-gender-ambiguous ${styles.detailIcon}`} />
+              <div>
+                <span className={styles.detailLabel}>Gender:</span>
+                <span className={styles.detailValue}>{profileData.personalInfo.gender}</span>
+              </div>
+            </div>
+            
+            <div className={styles.detailItem}>
+              <i className={`bi bi-linkedin ${styles.detailIcon} ${styles.linkedinIcon}`} />
+              <div>
+                <span className={styles.linkedinLabel}>LinkedIn:</span>
+                <span className={styles.detailValue}>View</span>
+              </div>
+            </div>
+            
+            <div className={styles.detailItem}>
+              <i className={`bi bi-telephone-fill ${styles.detailIcon}`} />
+              <div>
+                <span className={styles.detailLabel}>Phone:</span>
+                <span className={styles.detailValue}>{profileData.personalInfo.phone}</span>
+              </div>
+            </div>
+            
+            <div className={styles.detailItem}>
+              <i className={`bi bi-geo-alt-fill ${styles.detailIcon}`} />
+              <div>
+                <span className={styles.detailLabel}>Location:</span>
+                <span className={styles.detailValue}>{profileData.personalInfo.location}</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Company Card */}
+        {/* Company Section */}
         <div className={styles.companyCard}>
           <div className={styles.companyHeader}>
             <span className={styles.founderBadge}>Founder ID: {profileData.companyInfo.founderID}</span>
@@ -136,26 +126,56 @@ const MentorDisplay = ({
           </div>
           
           <div className={styles.companyDetails}>
-            <DetailItem icon="person-badge-fill" label="Designation" value={profileData.companyInfo.designation} />
-            <DetailItem 
-              icon="globe" 
-              label="Website" 
-              value={profileData.companyInfo.website} 
-              isLink 
-              url={profileData.companyInfo.websiteUrl} 
-            />
-            <DetailItem icon="calendar2-check-fill" label="Work" value={profileData.companyInfo.workYear} />
-            <DetailItem icon="building" label="Industry" value={profileData.companyInfo.industry} />
+            <div className={styles.detailItem}>
+              <i className={`bi bi-person-badge-fill ${styles.detailIcon}`} />
+              <div>
+                <span className={styles.detailLabel}>Designation:</span>
+                <span className={styles.detailValue}>{profileData.companyInfo.designation}</span>
+              </div>
+            </div>
+            
+            <div className={styles.detailItem}>
+              <i className={`bi bi-globe ${styles.detailIcon}`} />
+              <div>
+                <span className={styles.detailLabel}>Website:</span>
+                <a href={profileData.companyInfo.websiteUrl} className={styles.detailValue}>
+                  {profileData.companyInfo.website}
+                </a>
+              </div>
+            </div>
+            
+            <div className={styles.detailItem}>
+              <i className={`bi bi-calendar2-check-fill ${styles.detailIcon}`} />
+              <div>
+                <span className={styles.detailLabel}>Work:</span>
+                <span className={styles.detailValue}>{profileData.companyInfo.workYear}</span>
+              </div>
+            </div>
+            
+            <div className={styles.detailItem}>
+              <i className={`bi bi-building ${styles.detailIcon}`} />
+              <div>
+                <span className={styles.detailLabel}>Industry:</span>
+                <span className={styles.detailValue}>{profileData.companyInfo.industry}</span>
+              </div>
+            </div>
           </div>
         </div>
           
-        {/* Experience & Skills */}
+        {/* Experience & Skills Section */}
         <div className={styles.timelineSkillsCard}>
           <div className={styles.timelineSection}>
             <h5 className={styles.sectionTitle}>Experience & Education</h5>
             <div className={styles.timeline}>
               {profileData.timelineItems.map((item, i) => (
-                <TimelineItem key={i} {...item} />
+                <div key={i} className={styles.timelineItem}>
+                  <div className={styles.timelineMarker}></div>
+                  <div className={styles.timelineContent}>
+                    <h6>{item.title}</h6>
+                    <p className={styles.position}>{item.position}</p>
+                    <p className={styles.timelineDate}>{item.period}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -170,17 +190,26 @@ const MentorDisplay = ({
 
             <h5 className={styles.sectionTitle}>Notable Achievements</h5>
             {profileData.achievements.map((achievement, i) => (
-              <AchievementItem key={i} {...achievement} />
+              <div key={i} className={styles.achievementItem}>
+                <i className={`bi bi-${achievement.icon} ${styles.trophyIcon}`} />
+                <div>{achievement.text}</div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Press Mentions */}
+        {/* Press Mentions Section */}
         <div className={styles.pressCard}>
           <h5 className={styles.sectionTitle}>Press Mentions</h5>
           <div className={styles.pressContainer}>
             {profileData.pressMentions.map((item, i) => (
-              <PressItem key={i} {...item} />
+              <div key={i} className={styles.pressItem}>
+                <div className={styles.pressIcon}><i className="bi bi-newspaper" /></div>
+                <div className={styles.pressContent}>
+                  <h6>{item.publication}</h6>
+                  <p>{item.title}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
