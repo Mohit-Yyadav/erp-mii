@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
+
 import styles from "../../assets/css/startup/StartupForm.module.css";
 
 const StartupProfileForm = () => {
   const [formData, setFormData] = useState({});
- const { register, handleSubmit, reset } = useform();
+//  const { register, handleSubmit, reset } = useForm();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -22,7 +23,7 @@ const StartupProfileForm = () => {
         Please fill in all mandatory fields marked with *
       </p>
 
-      <form className="startup-form" onSubmit={handleSubmit}>
+      <form className="startup-form" onSubmit={handleImageUpload}>
         {/* Personal Information Section */}
         <div className={styles.formSection}>
           <h2>

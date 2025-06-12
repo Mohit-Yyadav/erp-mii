@@ -2,6 +2,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
+
 }
 
 .addButton {
@@ -147,7 +148,7 @@
   gap: 10px;
 }
 
-.mentorsGrid {
+.mentorGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
@@ -155,7 +156,7 @@
 
 /* Responsive styles */
 @media (max-width: 1400px) {
-  .mentorsGrid {
+  .mentorGrid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
@@ -175,7 +176,7 @@
 @media (max-width: 768px) {
   .mainContainer {
     left: 0; /* When sidebar is hidden on smaller screens */
-    padding: 15px;
+    padding: 25px;
   }
   
   .headerContainer {
@@ -190,7 +191,7 @@
 }
 
 @media (max-width: 576px) {
-  .mentorsGrid {
+  .mentorGrid {
     grid-template-columns: 1fr;
   }
 }

@@ -9,8 +9,8 @@ const TaskCreationForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-    <div className="container">
-        <div className="row justify-content-center">
+   <div className="container" style={{ marginTop: "70px" }}>
+        <div className="row justify-content-center ">
           <div className="col-md-10 col-lg-8">
             <div className="card shadow p-4">
               <h3 className="text-center text-primary mb-4" style={{ textDecoration: "underline", fontWeight: "bold" }}>Task Creation Form</h3>

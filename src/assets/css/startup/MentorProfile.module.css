@@ -1,6 +1,6 @@
   .mentorBody {
     font-family: Arial, sans-serif;
-    background-color: #e7edf3;
+     background-color: #eaebec !important;
     color: #333;
     line-height: 1.6;
   }
@@ -9,6 +9,7 @@
     max-width: 800px;
     margin: auto;
     padding: 20px;
+    margin-top: 50px;
   }
   
   .mentorFormCard {

@@ -15,7 +15,7 @@ const MetricTrackingForm = ({ onSubmit }) => {
   
     return (
       <form onSubmit={handleSubmit}>
-    <div className="container">
+    <div className="container" style={{ marginTop: "70px" }}>
         <div className="row justify-content-center">
           <div className="col-md-10 col-lg-8">
             <div className="card shadow p-4">

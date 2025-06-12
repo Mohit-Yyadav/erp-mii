@@ -45,11 +45,16 @@ const NavbarSection = ({ upperLink, className, baseLink }) => {
 
       <div className={styles.iconContainer}>
         <NavLink
-          to={`${baseLink}NotificationPage`}
+          to="/startup/NotificationPage"
           className="bi bi-bell mt-2"
         ></NavLink>
 
-        <i className="bi bi-chat-right-text mt-2"></i>
+         <NavLink
+          to="/startup/feedback"
+          className="bi bi-chat-right-text mt-2"
+        ></NavLink>
+
+        
         <div className="dropdown">
           <button
             className="btn btn mt-2"

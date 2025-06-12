@@ -49,7 +49,7 @@ const Dashboard = () => {
     {
       menu: "Meeting",
       submenu: [
-        { name: "Directory", link: "meeting-directory", icon: "bi bi-calendar-event" },
+        { name: "Schedule", link: "meetingSchedule", icon: "bi bi-calendar-event" },
       ],
     },
   ];

@@ -6,7 +6,8 @@
 .calendarSection, .incubationSection {
   margin-bottom: 30px;
   padding: 20px; 
-  height: 350px; 
+  height: 350px;
+  margin-top: 20px; 
   }
 
 .card {

@@ -1,13 +1,13 @@
-import styles from "../../assets/css/startup/ChartAndFundings.module.css";
-import "bootstrap-icons/font/bootstrap-icons.css"; // Import Bootstrap Icons
+import styles from "../../assets/css/startup/ChartAndFundings.module.css"
+import "bootstrap-icons/font/bootstrap-icons.css" // Import Bootstrap Icons
 
 const ChartAndFundings = () => {
   return (
-    <div className={`row mb-3 ${styles.chartAndFundings}`}>
+    <div className={`row mb-3  gap-3${styles.chartAndFundings}`}>
       {/* Profile Creation Section */}
-      <div className="col-md-9">
+      <div className="col-md-8 col-lg-9">
         <div className="card border-0">
-          <div className="card-body">
+           <div className={styles.noBackground}>
             <div className={`${styles.chartPlaceholder} mt-2`}>
               <h5 className="fw-bold fs-6 text-decoration-underline">Profile Creation</h5>
 
@@ -35,25 +35,23 @@ const ChartAndFundings = () => {
       </div>
 
       {/* Fundings Section */}
-      <div className="col-md-3">
-        <div className="card border-0">
-          <div className="card-body">
-            <div className={styles.funding}>
-              <h5 className="fw-bold fs-6 text-decoration-underline">Fundings</h5>
-              <ul className="list-unstyled">
-                <li className="mb-1">Google</li>
-                <li className="mb-1">YouTube</li>
-                <li className="mb-1">Instagram</li>
-                <li className="mb-1">Pinterest</li>
-                <li className="mb-1">Facebook</li>
-                <li className="mb-1">Twitter</li>
-              </ul>
-            </div>
+      <div className="col-md-4 col-lg-3">
+        <div className={styles.noBackground}>
+          <div className={styles.funding}>
+            <h5 className="fw-bold fs-6 text-decoration-underline">Fundings</h5>
+            <ul className="list-unstyled">
+              <li className="mb-1">Google</li>
+              <li className="mb-1">YouTube</li>
+              <li className="mb-1">Instagram</li>
+              <li className="mb-1">Pinterest</li>
+              <li className="mb-1">Facebook</li>
+              <li className="mb-1">Twitter</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ChartAndFundings;
+export default ChartAndFundings

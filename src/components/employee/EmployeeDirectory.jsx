@@ -34,8 +34,8 @@ const EmployeeDirectory = () => {
   };
 
   return (
-    <div className="container">
-      <div className="d-flex justify-content-between align-items-center mb-4">
+    <div className={styles.mainContainer}>
+          <div className={styles.headerContainer}>
         <h1 className={styles.title}>employee Directory</h1>
         <NavLink
           to="/startup/employee-form"

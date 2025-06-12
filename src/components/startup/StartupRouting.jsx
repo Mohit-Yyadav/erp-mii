@@ -56,7 +56,7 @@ const Startup = () => {
       <Route path="/employee-form" element={<EmployeeDataForm />} />
       <Route path="/employee-directory" element={<EmployeeDirectory />} />
       <Route path="/employee-display" element={<EmployeeDisplay />} />
-<Route path="/employee-update-form" element={<EmployeeDataUpdateForm/>}/>
+     <Route path="/employee-update-form" element={<EmployeeDataUpdateForm/>}/>
 
       <Route path="/investor-directory" element={<InvestorDirectory />} />
       <Route path="/investor-display" element={<InvestorDisplay />} />
@@ -74,7 +74,7 @@ const Startup = () => {
       <Route path="/meetingSchedule/*" element={<MeetingSchedulePage />} />
       <Route path="/facilityTable/*" element={<FacilityTable />} />
 
-      <Route path="/NotificationPage/*" element={<NotificationPage />} />
+      <Route path="/NotificationPage/*" element={<Page />} />
     
 
       <Route path="*" element={<div>404 - Page Not Found</div>} />

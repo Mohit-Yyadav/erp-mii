@@ -12,7 +12,7 @@ const StartupDirectory = () => {
   const basePath = location.pathname.split('/')[1]
   const [startups, setStartups] = useState([])
 
-  const fetchData = async()=>{
+  const fetchData = async () => {
     try {
       const result = await axios.get("/api/mainform/get-data");
       if (result) {
@@ -25,7 +25,7 @@ const StartupDirectory = () => {
   }
   useEffect(() => {
     fetchData();
-  },[])
+  }, [])
 
   const [searchTerm, setSearchTerm] = useState("")
   const [statusFilter, setStatusFilter] = useState("All Status")
@@ -38,18 +38,18 @@ const StartupDirectory = () => {
 
 
 
-  return <Loader/> && (
+  return <Loader /> && (
     <div className={styles.mainContainer}>
-         <div className={styles.headerContainer}>
+      <div className={styles.headerContainer}>
         <h1 className={styles.title}>Startup Directory</h1>
         <NavLink
-        to='/startup/startup-Form'className={`btn btn-primary ${styles.addButton}`}>
+          to='/startup/startup-Form' className={`btn btn-primary ${styles.addButton}`}>
           <i className="bi bi-plus"></i> Add Startup Form
-       </NavLink>
+        </NavLink>
       </div>
 
       <div className={styles.filtersContainer}>
-             <div className={styles.searchBox}>
+        <div className={styles.searchBox}>
           <div className="input-group">
             <span className="input-group-text bg-white border-end-0">
               <i className="bi bi-search text-muted"></i>
@@ -89,11 +89,11 @@ const StartupDirectory = () => {
         </div>
       </div>
 
-     <div className={styles.startupGrid}>
-        {startups?.map((startup,i) => {
-          return(
-          <div key={i} className={styles.startupCard} >
-           <div className={styles.cardHeader}>
+      <div className={styles.startupGrid}>
+        {startups?.map((startup, i) => {
+          return (
+            <div key={i} className={styles.startupCard} >
+              <div className={styles.cardHeader}>
                 <div className="dropdown">
                   <button
                     className={`btn ${styles.menuButton}`}
@@ -139,13 +139,13 @@ const StartupDirectory = () => {
               </div>
 
               <div className={styles.cardFooter}>
-                <NavLink to ={`/${basePath}/main-form-display/${startup.id}`} className={styles.viewButton}>View Details</NavLink>
-               <NavLink 
-                 to={`/${basePath}/main-form-update/${startup.id}` }
-                 className={styles.editStatusButton}
-               >
-                 Edit Status
-               </NavLink>
+                <NavLink to={`/${basePath}/main-form-display/${startup.id}`} className={styles.viewButton}>View Details</NavLink>
+                <NavLink
+                  to={`/${basePath}/main-form-update/${startup.id}`}
+                  className={styles.editStatusButton}
+                >
+                  Edit Status
+                </NavLink>
               </div>
             </div>
           )

@@ -27,7 +27,7 @@ const InvestorDirectory = () => {
   }, []);
 
   const handleDelete = (id) => {
-    setinvestors(investors.filter((investor) => investor.id !== id))
+    setInvestors(investors.filter((investor) => investor.id !== id))
   }
 
   const handleEdit = (id) => {
@@ -36,17 +36,16 @@ const InvestorDirectory = () => {
   }
 
   return (
-    <div className="container"
-    >
-      <div className="d-flex justify-content-between align-items-center mb-4">
+    <div className={styles.mainContainer}>
+          <div className={styles.headerContainer}>
         <h1 className={styles.title}>Investor Directory</h1>
         <NavLink to={`/${basePath}/investors-profile`} className={`btn btn-primary ${styles.addButton}`}>
           <i className="bi bi-plus"></i> Add Investor Form
       </NavLink>
       </div>
 
-      <div className="row mb-4">
-        <div className="col-md-6">
+     <div className={styles.filtersContainer}>
+             <div className={styles.searchBox}>
           <div className="input-group">
             <span className="input-group-text bg-white border-end-0">
               <i className="bi bi-search text-muted"></i>
@@ -59,7 +58,7 @@ const InvestorDirectory = () => {
             />
           </div>
         </div>
-        <div className="col-md-6 d-flex gap-2 mt-3 mt-md-0">
+          <div className={styles.selectsContainer}>
           <select className="form-select">
             <option>All Status</option>
             <option>Active</option>
@@ -79,7 +78,7 @@ const InvestorDirectory = () => {
         </div>
       </div>
 
-      <div className="row bg-light">
+     <div className={styles.startupGrid}>
         {investors?.map((investor,i) => (
           <div key={investor.id} className="col-md-6 col-lg-4 mb-4 mt-4">
             <div className={styles.investorCard}>

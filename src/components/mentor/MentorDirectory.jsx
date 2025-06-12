@@ -1,11 +1,11 @@
-  // import { useState } from "react";
+import { useEffect, useState } from "react"
 
   import styles from "../../assets/css/startup/MentorDirectory.module.css";
   import { NavLink, useLocation } from "react-router-dom";
   import axios from "../../../utils/Axios";
   import { toast } from "react-toastify";
   import Loader from "../loader/Loader";
-  import { useEffect, useState } from "react";
+ 
 
   const MentorDirectory = () => {
         const location = useLocation();
@@ -44,19 +44,19 @@
     };
 
     return Loader && (
-      <div className="container">
-        <div className="d-flex justify-content-between align-items-center mb-4">
+       <div className={styles.mainContainer}>
+            <div className={styles.headerContainer}>
           <h1 className={styles.title}>Mentor Directory</h1>
           <NavLink
-            to={`/${basePath}/mentor-form`}
+             to='/startup/mentor-Form' 
             className={`btn btn-primary ${styles.addButton}`}
           >
             <i className="bi bi-plus"></i> Add Mentor Form
           </NavLink>
         </div>
 
-        <div className="row mb-4">
-          <div className="col-md-6">
+       <div className={styles.filtersContainer}>
+               <div className={styles.searchBox}>
             <div className="input-group">
               <span className="input-group-text bg-white border-end-0">
                 <i className="bi bi-search text-muted"></i>
@@ -69,7 +69,7 @@
               />
             </div>
           </div>
-          <div className="col-md-6 d-flex gap-2 mt-3 mt-md-0">
+         <div className={styles.selectsContainer}>
             <select className="form-select">
               <option>All Status</option>
               <option>Active</option>
@@ -89,9 +89,9 @@
           </div>
         </div>
 
-        <div className="row bg-light">
+        <div className={styles.startupGrid}>
           {mentors?.map((mentor, i) => (
-            <div key={mentor.id} className="col-md-6 col-lg-4 mb-4 mt-4">
+            <div key={mentor.id} className={styles.mentorCard}>
               <div className={styles.mentorCard}>
                 <div className={styles.cardHeader}>
                   <div className={`dropdown ${styles.menuDropdown}`}>

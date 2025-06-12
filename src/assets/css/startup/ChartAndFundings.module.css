@@ -1,11 +1,12 @@
 /* Main Container */
 .chartAndFundings {
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 /* Profile Creation Placeholder */
 .chartPlaceholder {
-  background-color:#F7F9FB ;
+  background-color: #f7f9fb;
   color: #6c757d;
   border-radius: 10px;
   box-shadow: 8px 8px 4px rgba(23, 20, 20, 0.1);
@@ -15,7 +16,7 @@
 
 /* Create Profile Button */
 .createProfile {
-  background-color:#4a4daa;
+  background-color: #4a4daa;
   color: white;
   border-radius: 10px;
   transition: background-color 0.3s ease;
@@ -59,35 +60,32 @@
 }
 
 /* Fundings Section */
-.funding {
-  background-color: #f8f9fa;
-  display: flex;
-  flex-direction: column;
-  color: #090909;
-  border-radius: 10px;
-  box-shadow: 8px 8px 4px rgba(23, 20, 20, 0.1);
-  padding: 25px;
-  width: 170px;
-  height: 220px;
-  /* margin-top: 0.2rem; */
-  flex: 1; /* Make it flexible */
-  min-width: 165px; /* Minimum width to avoid overflow */
-  max-width: 300px; /* Prevent it from expanding too much */
-  overflow: hidden; /* Avoid content spilling */
-  text-overflow: ellipsis; /* Handle long content */
+.noBackground {
+  background-color: transparent !important;
+  box-shadow: none;
 }
 
+.funding {
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    color: #090909;
+    border-radius: 10px;
+    box-shadow: 8px 8px 4px rgba(23, 20, 20, 0.1);
+    padding: 25px;
+    height: 235px;
+    width: 180px;
+}
+
+
 /* Responsive Design */
-@media (max-width: 1500px) {
+@media (max-width: 767px) {
   .chartAndFundings {
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
+    flex-direction: column;
   }
 
   .funding {
-    justify-content: center;
-    width: 100%;
     margin-top: 1rem;
+    width: 100%;
   }
 }
