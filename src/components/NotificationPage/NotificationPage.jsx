@@ -5,18 +5,13 @@ const Header = () => {
   return (
     <div className={styles.notificationsHeader}>
       <div>
-        <h2 className="h4 mb-1 fw-bold">Notifications</h2>
+        <h2 className={`h3 mb-1 fw-bold ${styles.notificationTitleMain}`}>Notifications</h2>
         <p className="text-muted mb-0" style={{ fontSize: "0.875rem" }}>
           Stay updated with your latest activities
         </p>
       </div>
       <button className={styles.notificationMarkReadButton}>
         Mark all as read
-        <img
-          src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=600"
-          alt="Profile"
-          className={styles.notificationProfilePic}
-        />
       </button>
     </div>
   );

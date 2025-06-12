@@ -1,163 +1,184 @@
 .notificationBody {
-    background-color: rgba(229, 231, 235, 1);
-  }
-  
+  background-color: rgba(229, 231, 235, 1);
+}
+
 .notificationRoot {
-    --notification-hover: rgba(0, 0, 0, 0.03);
-  }
-  
-  
-  .notificationsHeader {
-    margin-top: 10px !important;
-    max-width: 800px;
-    width: 100%;
-    padding: 1rem;
-    margin: 0 auto 2rem auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: left;
-  }
-  
-  
+  --notification-hover: rgba(0, 0, 0, 0.03);
+}
+
+.notificationsHeader {
+  margin-top: 10px !important;
+  max-width: 900px;
+  width: 100%;
+  padding: 0.1rem;
+  /* margin: 0 auto 2rem auto; */
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+}
+
+.notificationsContainer {
+  max-width: 920px;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  /* background-color: rgba(229, 231, 235, 1); */
+  margin-top: 60px !important;
+  border-radius: 1%;
+}
+
+.notificationItem {
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: white !important;
+  border: 1px solid #dee2e6;
+}
+
+.notificationItem:hover {
+  background-color: var(--notification-hover);
+}
+
+/* Notification Icon */
+.notificatioIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+}
+
+/* Notification Title & Time */
+.notificationTitle {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.notificationTime {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+/* Time Divider Styling */
+.notificationTimeDivider {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin: 1.5rem 0 1rem 0;
+  font-weight: 500;
+}
+
+/* Icon Color & Backgrounds */
+.notificationIconBlue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.notificationIconGreen {
+  background-color: rgba(25, 135, 84, 0.1);
+  color: #198754;
+}
+
+.notificationIconYellow {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+}
+
+.notificationIconPurple {
+  background-color: rgba(111, 66, 193, 0.1);
+  color: #6f42c1;
+}
+
+.notificationIconRed {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+.notificationIconGray {
+  background-color: rgba(108, 117, 125, 0.1);
+  color: #6c757d;
+}
+
+/* Action Button Styling */
+.notificationActionButton {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #6c757d;
+}
+
+.notificationActionButton:hover {
+  background-color: rgba(108, 117, 125, 0.1);
+}
+
+/* Mark Read Button Styling */
+.notificationMarkReadButton {
+  color: #36393b;
+  background: rgb(222, 223, 224);
+  border: none;
+  font-size: 0.88rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.notificationMarkReadButton:active {
+  transform: scale(0.96);
+}
+
+.notificationMarkReadButton:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .notificationsContainer {
-    max-width: 800px;
+    width: 90%;
+    padding: 10px;
+  }
+
+  .notificationsHeader {
     width: 100%;
-    margin: auto;
-    padding: 20px;
-    background-color: rgba(229, 231, 235, 1);
-  }
-  
-  
-  .notificationItem {
-    transition: background-color 0.2s ease;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: white !important;
-    border: 1px solid #dee2e6; 
-  }
-  
-  .notificationItem:hover {
-    background-color: var(--notification-hover);
-  }
-  
-  /* Notification Icon */
-  .notificatioIcon {
-    width: 40px;
-    height: 40px;
-    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    position: relative;
   }
+
   
-  /* Notification Title & Time */
-  .notificationTitle {
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-    font-weight: bold;
-  }
-  
-  .notificationTime {
-    font-size: 0.875rem;
-    color: #6c757d;
-  }
-  
-  /* Time Divider Styling */
-  .notificationTimeDivider {
-    font-size: 0.875rem;
-    color: #6c757d;
-    margin: 1.5rem 0 1rem 0;
-    font-weight: 500;
-  }
-  
-  /* Icon Color & Backgrounds */
-  .notificationIconBlue {
-    background: #dbeafe;
-    color: #2563eb;
-  }
-  
-  .notificationIconGreen {
-    background-color: rgba(25, 135, 84, 0.1);
-    color: #198754;
-  }
-  
-  .notificationIconYellow {
-    background-color: rgba(255, 193, 7, 0.1);
-    color: #ffc107;
-  }
-  
-  .notificationIconPurple {
-    background-color: rgba(111, 66, 193, 0.1);
-    color: #6f42c1;
-  }
-  
-  .notificationIconRed {
-    background-color: rgba(220, 53, 69, 0.1);
-    color: #dc3545;
-  }
-  
-  .notificationIconGray {
-    background-color: rgba(108, 117, 125, 0.1);
-    color: #6c757d;
-  }
-  
-  /* Action Button Styling */
-  .notificationActionButton {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    border: none;
-    background: transparent;
-    color: #6c757d;
-  }
-  
-  .notificationActionButton:hover {
-    background-color: rgba(108, 117, 125, 0.1);
-  }
-  
-  /* Mark Read Button Styling */
   .notificationMarkReadButton {
-    color: #6c757d;
-    background: rgba(243, 244, 246, 1);
-    border: none;
-    font-size: 0.875rem;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    display: flex;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .notificationsHeader {
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 1rem;
+    text-align: left;
   }
-  
-  .notificationProfilePic {
-    width: 41px;
-    height: 41px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-left: 1rem;
+
+  .notificationTitleMain {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: left;
+    margin: 0;
   }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .notificationsContainer {
-      width: 90%;
-      padding: 10px;
-    }
-  
-    /* Ensure header remains in row layout for mobile */
-    .notificationsHeader {
-      width: 100%;
-      flex-direction: row;           /* Row layout instead of column */
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    /* Optionally, reduce the button size on mobile */
-    .notificationMarkReadButton {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.5rem;
-    }
+
+  .notificationMarkReadButton {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+    margin: 0;
+    align-self: center;
   }
-  
+}
