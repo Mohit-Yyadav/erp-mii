@@ -1,0 +1,131 @@
+
+
+.containerOffice {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    /* .officeCard {
+        background-color: #F8F9FA;
+        border-radius: 8px;
+        padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+/* .statusTextOffice {
+    color: red;
+    font-weight: bold;
+} */
+
+/* .summaryCardOffice{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+/* Meeting room */
+/* .containerMeeting {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+    /* .meetingCard {
+        background-color: #F8F9FA;
+        border-radius: 8px;
+        padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+/* .statusTextMeeting {
+    color: red;
+    font-weight: bold;
+} */
+
+/* .summaryCardMeeting{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+
+.containerDesk {
+    background-color: #FDF7F7;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .deskCard {
+        border: solid #333;
+        border-radius: 8px;
+        padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* .statusTextDesk {
+    color: red;
+    font-weight: bold;
+} */
+
+.summaryCardDesk{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* .containerEquip {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+    /* .projectorCard {
+        background-color: #F8F9FA;
+        border-radius: 8px;
+        padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+/* .statusTextEquip {
+    color: red;
+    font-weight: bold;
+} */
+
+/* .summaryCardEquip{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
