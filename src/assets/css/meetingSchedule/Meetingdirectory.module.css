@@ -1,0 +1,168 @@
+.page {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.header {
+  background: linear-gradient(to right, #111827, #374151);
+  color: white;
+  padding: 1.2rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.searchBar {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btnFilter {
+  background: linear-gradient(to right, #111827, #374151);
+  color: white;
+}
+.btnFilter:hover,
+.btnNew:hover {
+  background: linear-gradient(to right, #374151, #111827);
+  opacity: 0.9;
+  color: whitesmoke;
+}
+
+.btnFilter:active,
+.btnNew:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: whitesmoke;
+}
+
+.btnNew {
+  background: linear-gradient(to right, #111827, #374151);
+  color: white;
+}
+
+.btnLight {
+  background-color: #eceef1d2;
+  transition: all 0.1s ease-in-out;
+}
+
+.btnLight:hover {
+  background-color: #ccced3d2;
+  cursor: pointer;
+}
+
+.btnLight:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btnList {
+  background-color: #111827;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btnList:hover {
+  background-color: #253041;
+  color: whitesmoke;
+}
+
+.btnList:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-secondary {
+  color: #111827;
+  background-color: white;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f3f4f6;
+  border-color: #111827;
+  color: #111827;
+}
+
+.btn-outline-secondary:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.meetingCard {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 1.3rem;
+  background: linear-gradient(to right, #ffffff, #f9fafb);
+}
+
+.statusBadge {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.confirmed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.inprogress {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.avatarGroup img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-right: -10px;
+}
+
+.meetingTime,
+.meetingDate,
+.meetingLocation {
+  font-size: 0.9rem;
+}
+
+.calendarPicker {
+  width: 200px;
+  display: none;
+  z-index: 999;
+}
+
+.selectedDate {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+  .selectedDate {
+    display: block;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
