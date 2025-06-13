@@ -6,10 +6,9 @@
 }
 
 .container {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 15px;
   width: 100%;
+  max-width: 1000px;
+  padding: 0 15px;
 }
 
 .header {
@@ -18,8 +17,32 @@
   padding: 1.2rem;
   font-weight: bold;
   font-size: 1.5rem;
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 47%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 33px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  margin-left: 220px;
+  margin-right: 320px;
+  margin-top: 27px;
+}
+
+@media (max-width: 992px) {
+  .wrapper {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 80px 15px 0;
+  }
 }
 
 .searchBar {
@@ -155,14 +178,5 @@
   .selectedDate {
     display: block;
     margin-top: 0.5rem;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 30px;
-    padding-right: 30px;
   }
 }
