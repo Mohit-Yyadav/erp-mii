@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import styles from "../../assets/css/startup/ProfileCard.module.css";
+import styles from "../../assets/css/mentor/ProfileCard.module.css";
 import { useParams } from "react-router-dom";
 import axios from "../../../utils/Axios";
 import Loader from "../loader/Loader";

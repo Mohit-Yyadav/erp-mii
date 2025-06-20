@@ -2,10 +2,10 @@ import React, { lazy, Suspense } from "react";
 import Navbar from "../dashboard_components/NavbarSection";
 import Sidebar from "../dashboard_components/Sidebar";
 import NotificationSidebar from "../dashboard_components/NotificationSidebar";
-import mainContentStyles from "../../assets/css/startup/MainContent.module.css";
-import navbarStyles from "../../assets/css/startup/NavbarSection.module.css";
-import notificationStyles from "../../assets/css/startup/NotificationSidebar.module.css";
-import sidebarStyles from "../../assets/css/startup/Sidebar.module.css";
+import mainContentStyles from "../../assets/css/dashboard/MainContent.module.css";
+import navbarStyles from "../../assets/css/dashboard/NavbarSection.module.css";
+import notificationStyles from "../../assets/css/dashboard/NotificationSidebar.module.css";
+import sidebarStyles from "../../assets/css/dashboard/Sidebar.module.css";
 import Loader from "../loader/Loader";
 const HumanResourceRouting = lazy(() => import("../../routes/HumanResource"));
 

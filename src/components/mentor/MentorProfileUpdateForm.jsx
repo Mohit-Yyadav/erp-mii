@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../assets/css/startup/MentorProfile.module.css";
+import styles from "../../assets/css/mentor/MentorProfile.module.css";
 
 function MentorProfileUpdateForm() {
   const [profileImage, setProfileImage] = useState(null);

@@ -2,7 +2,7 @@
 import { Route, Routes } from 'react-router-dom'
 import MainContent from '../components/dashboard_components/MainContent'
 import SpaceBooking from '../components/human_resource/SpaceBooking'
-import mainContentStyles from "../assets/css/startup/MainContent.module.css"
+import mainContentStyles from "../assets/css/dashboard/MainContent.module.css"
 import PrototypeForm from '../components/human_resource/PrototypeForm'
 import FacilityTable from '../components/human_resource/FacilityTable'
 

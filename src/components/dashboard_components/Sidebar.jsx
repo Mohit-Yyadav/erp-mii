@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import styles from "../../assets/css/startup/Sidebar.module.css"
+import styles from "../../assets/css/dashboard/Sidebar.module.css"
 import { NavLink } from "react-router-dom"
 
 const Sidebar = ({ baseLink, dashboard, sidebarOption }) => {

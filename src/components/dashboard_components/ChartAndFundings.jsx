@@ -1,4 +1,4 @@
-import styles from "../../assets/css/startup/ChartAndFundings.module.css"
+import styles from "../../assets/css/dashboard/ChartAndFundings.module.css"
 import "bootstrap-icons/font/bootstrap-icons.css" // Import Bootstrap Icons
 
 const ChartAndFundings = () => {

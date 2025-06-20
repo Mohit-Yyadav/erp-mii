@@ -1,6 +1,6 @@
 // import React from "react";
 import { Container, Table } from "react-bootstrap";
-import styles from "../../assets/css/facilityTable/FacilityTable.module.css";
+import styles from "../../assets/css/human_resource/FacilityTable.module.css";
 
 const FacilityTable = () => {
   const facilities = [

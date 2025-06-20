@@ -1,5 +1,5 @@
 import React from "react";
-import main from "../../assets/css/startup/MainContent.module.css";
+import main from "../../assets/css/dashboard/MainContent.module.css";
 import styles from "../../assets/css/human_resource/spaceBooking.module.css"
 
 const SpaceBooking = () => {

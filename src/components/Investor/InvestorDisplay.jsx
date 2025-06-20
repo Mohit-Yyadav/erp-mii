@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "../../assets/css/startup/InvestorDisplay.module.css";
+import styles from "../../assets/css/investor/InvestorDisplay.module.css";
 
 const InvestorDisplay = () => {
   return (

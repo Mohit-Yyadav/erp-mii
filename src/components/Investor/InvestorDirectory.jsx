@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import styles from "../../assets/css/startup/InvestorDirectory.module.css";
+import styles from "../../assets/css/investor/InvestorDirectory.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 import axios from "../../../utils/Axios";
 import { toast } from "react-toastify";

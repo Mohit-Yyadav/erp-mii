@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-  import styles from "../../assets/css/startup/MentorDirectory.module.css";
+  import styles from "../../assets/css/mentor/MentorDirectory.module.css";
   import { NavLink, useLocation } from "react-router-dom";
   import axios from "../../../utils/Axios";
   import { toast } from "react-toastify";

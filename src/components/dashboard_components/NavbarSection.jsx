@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import styles from "../../assets/css/startup/NavbarSection.module.css";
+import styles from "../../assets/css/dashboard/NavbarSection.module.css";
 import { useAuth } from "../../../utils/ContextApi";
 
 const NavbarSection = ({ upperLink, className, baseLink }) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MainForm from '../components/MainForm';
 import HRDashboard from '../components/human_resource/Dashboard';
-import StartupDashboard from '../components/startup/Dashboard';
+import StartupDashboard from '../components/dashboard_components/Dashboard';
 import SuperAdminDashboard from '../components/super_admin/Dashboard';
 import AuthRouting from './AuthRouting';
 import PublicRoutes from './PublicRoute';

@@ -1,4 +1,4 @@
-import styles from "../../assets/css/startup/StatsSection.module.css"
+import styles from "../../assets/css/dashboard/StatsSection.module.css"
 
 const StatsSection = () => {
   return (

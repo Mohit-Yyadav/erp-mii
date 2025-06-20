@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Profile from "../components/startup/Profile";
 import MainContent from "../components/dashboard_components/MainContent";
-import mainContentStyles from "../assets/css/startup/MainContent.module.css";
+
 import StartupDirectory from "../components/startup/StartupDirectory.jsx";
 import StartupProfileForm from "../components/startup/StartupForm";
 import StartupDisplay from "../components/startup/StartupDisplay";
@@ -40,6 +40,8 @@ import MeetingDirectory from "../components/meetingSchedule/Meetingdirectory.jsx
 import StartupPendingApprovalDirectory from "../components/startup/StartupPendingApprovalDirectory.jsx";
 
 import StartupDirectoryApproval from "../components/startup/StartupDirectoryApproval.jsx";
+
+import mainContentStyles from "../assets/css/dashboard/MainContent.module.css";
 
 const Startup = () => {
   return (

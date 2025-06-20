@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../assets/css/startup/EmployeeProfile.module.css";
+import styles from "../../assets/css/employee/EmployeeProfile.module.css";
 import profile from "../../assets/image/img.png";
 import { div } from "framer-motion/client";
 

@@ -1,4 +1,4 @@
-import styles from "../../assets/css/startup/NotificationSidebar.module.css";
+import styles from "../../assets/css/dashboard/NotificationSidebar.module.css";
 import { NavLink } from "react-router-dom";
 const NotificationSidebar = () => {
   return (

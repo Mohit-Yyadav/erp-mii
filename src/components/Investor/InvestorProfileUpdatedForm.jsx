@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../assets/css/startup/InvestorProfileUpdatedForm.module.css";
+import styles from "../../assets/css/investor/InvestorProfileUpdatedForm.module.css";
 import { useForm } from "react-hook-form";
 import axios from "../../../utils/Axios";
 import { toast } from "react-toastify";

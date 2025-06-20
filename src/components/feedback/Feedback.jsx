@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "../../components/feedback/Feedback.module.css";
+import styles from "../../assets/css/feedback/Feedback.module.css";
 
 const Feedback = () => {
   const feedbacks = [

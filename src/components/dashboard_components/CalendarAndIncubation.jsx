@@ -1,6 +1,6 @@
 import Calendar from "./Calendar";
 import PieChart from "./Piechart";
-import styles from "../../assets/css/startup/CalendarAndIncubation.module.css";
+import styles from "../../assets/css/dashboard/CalendarAndIncubation.module.css";
 
 const incubationData = [
   { name: "Incubation Count", value: 38.6, color: "#1C1C1C" },

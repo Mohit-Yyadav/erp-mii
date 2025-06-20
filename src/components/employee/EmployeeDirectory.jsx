@@ -1,4 +1,4 @@
-import styles from "../../assets/css/startup/EmployeeDirectory.module.css";
+import styles from "../../assets/css/employee/EmployeeDirectory.module.css";
 import { NavLink } from "react-router-dom";
 import axios from "../../../utils/Axios";
 import { toast } from "react-toastify";

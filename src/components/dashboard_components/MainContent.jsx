@@ -2,7 +2,7 @@ import React from 'react';
 import StatsSection from "./StatsSection"
 import ChartAndFundings from "./ChartAndFundings"
 import CalendarAndIncubation from "./CalendarAndIncubation"
-import styles from "../../assets/css/startup/MainContent.module.css"
+import styles from "../../assets/css/dashboard/MainContent.module.css"
 
 const MainContent = () => {
   return (

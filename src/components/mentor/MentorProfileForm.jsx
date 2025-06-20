@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import styles from "../../assets/css/startup/MentorProfile.module.css";
+import styles from "../../assets/css/mentor/MentorProfile.module.css";
 import { useForm } from "react-hook-form";
 import axios from "../../../utils/Axios";
 import { toast } from "react-toastify";
