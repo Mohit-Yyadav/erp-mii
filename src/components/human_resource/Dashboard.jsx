@@ -16,13 +16,12 @@ const Dashboard = () => {
     {
       menu: "Space Booking",
       submenu: [
-        { name: "All Details", link: "space-booking", icon: "bi bi-eye-fill" },
-        { name: "Desk", link: "desk", icon: "fa-solid fa-chair" },
-        { name: "Office", link: "office", icon: "fa-solid fa-person-shelter" },
-        {
-          name: "Meeting Room",
-          link: "meeying-room",
-          icon: "fa-solid fa-people-roof",
+        { name: "Space Booking", link: "space-booking", icon: "bi bi-eye-fill" },
+        { name: "Desk ", link: "desk-booking", icon: "fa-solid fa-chair" },
+        { name: "Office Room ", link: "officeRoom-booking", icon: "fa-solid fa-person-shelter" },
+        { name: "Meeting Room", link: "meetingRoom-booking", icon: "fa-solid fa-people-roof",
+        },
+        { name: "FacilityTable", link: "facility-table", icon: "fa-solid fa-people-roof",
         },
       ],
     },
@@ -31,7 +30,17 @@ const Dashboard = () => {
       submenu: [
         {
           name: "Detials",
-          link: "Details",
+          link: "equipment-booking",
+          icon: "fa-solid fa-screwdriver-wrench",
+        },
+      ],
+    },
+    {
+      menu: "Prototype",
+      submenu: [
+        {
+          name: "form",
+          link: "prototype-form",
           icon: "fa-solid fa-screwdriver-wrench",
         },
       ],
