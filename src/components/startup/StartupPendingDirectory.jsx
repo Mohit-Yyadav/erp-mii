@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import styles from "../../assets/css/startup/StartupDirectoryPendingApproval.module.css"
+import styles from "../../assets/css/startup/StartupPendingDirectory.module.css"
 
 const StartupPendingApprovalDirectory = () => {
   const [searchQuery, setSearchQuery] = useState("")

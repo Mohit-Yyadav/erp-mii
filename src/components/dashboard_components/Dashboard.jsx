@@ -19,27 +19,28 @@ const Dashboard = () => {
       menu: "Startup",
       submenu: [
         { name: "Directory", link: "startup-directory", icon: "bi bi-briefcase" },
-        { name: "ApprovalDirectory", link: "startup-pending-directory", icon: "bi bi-check-circle" },
+        { name: "ApprovalDirectory", link: "startup-pending-directory", icon: "bi bi-check-circle-fill" },
+        { name: " PendingDirectory", link: "startup-pending-approval-directory", icon: "bi bi-check-circle" },
       ],
     },
-    {
-      menu: "Mentor",
-      submenu: [
-        { name: "Directory", link: "mentor-directory", icon: "bi bi-person-badge" },
-      ],
-    },
-    {
-      menu: "Investor",
-      submenu: [
-        { name: "Directory", link: "investor-directory", icon: "bi bi-currency-dollar" },
-      ],
-    },
-    {
-      menu: "Employee",
-      submenu: [
-        { name: "Directory", link: "employee-directory", icon: "bi bi-people" },
-      ],
-    },
+    // {
+    //   menu: "Mentor",
+    //   submenu: [
+    //     { name: "Directory", link: "mentor-directory", icon: "bi bi-person-badge" },
+    //   ],
+    // },
+    // {
+    //   menu: "Investor",
+    //   submenu: [
+    //     { name: "Directory", link: "investor-directory", icon: "bi bi-currency-dollar" },
+    //   ],
+    // },
+    // {
+    //   menu: "Employee",
+    //   submenu: [
+    //     { name: "Directory", link: "employee-directory", icon: "bi bi-people" },
+    //   ],
+    // },
     {
       menu: "Milestone",
       submenu: [
@@ -50,6 +51,7 @@ const Dashboard = () => {
       menu: "Meeting",
       submenu: [
         { name: "Schedule", link: "meetingSchedule", icon: "bi bi-calendar-event" },
+         { name: "MeetingDetails", link: "meeting-directory", icon: "bi bi-calendar" },
       ],
     },
   ];

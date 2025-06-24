@@ -1,197 +1,180 @@
-.title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0;
-
-}
-
-.addButton {
-  background-color: #0d6efd;
-  border-radius: 4px;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-}
-
-.mentorCard {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 1.25rem;
+.page {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  width: 100vw;
   position: relative;
-  transition: all 0.3s ease;
-  height: 100%;
 }
 
-.mentorCard:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
-}
-
-.cardHeader {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-}
-
-.menuButton {
-  background: transparent !important;
-  border: none !important;
-  color: #6c757d !important;
-  padding: 0 !important;
-}
-
-.menuButton::after {
-  display: none !important;
-}
-
-.menuButton:hover,
-.menuButton:focus {
-  color: #212529 !important;
-}
-
-.mentorImage {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #f0f0f0;
-}
-
-.mentorName {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.mentorTitle {
-  color: #6c757d;
-  font-size: 0.9rem;
-  margin-bottom: 0;
-}
-
-.mentorInfo {
-  color: #495057;
-  font-size: 0.9rem;
-}
-
-.cardFooter {
-  display: flex;
-  justify-content: end;
-  gap: 25px;
-  margin-top: 0.5rem;
-  border-top: 2px solid #ccc; 
-  padding-top: 0.5rem;
-}
-
-.viewButton,
-.editStatusButton {
-  background: transparent;
-  border: none;
-  color: #4B5563;
-  font-size: 0.9rem;
-  padding: 0;
-  text-decoration: none;
-}
-
-.viewButton:hover,
-.editStatusButton:hover {
- color: #0d6efd;
-}
-
-.menuDropdown :global(.dropdown-menu) {
-  min-width: 8rem;
-  padding: 0.5rem 0;
-  font-size: 0.875rem;
-}
-
-.menuDropdown :global(.dropdown-item) {
-  padding: 0.5rem 1rem;
-}
-
-.menuDropdown :global(.dropdown-item:hover) {
-  background-color: #f8f9fa;
-}
-
-/* Main container that fits between sidebar and notification panel */
-.mainContainer {
-  position: absolute;
-  left: 225px; /* Width of the sidebar */
-  right: 255px; /* Width of the notification panel */
-  top: 60px; /* Height of the navbar */
-  bottom: 0;
-  overflow-y: auto;
-  background-color: #f8f9fa;
-  padding: 20px;
-}
-
-.headerContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.filtersContainer {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.searchBox {
+.container {
   width: 100%;
+  max-width: 1000px;
+  padding: 0 15px;
 }
 
-.selectsContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+.header {
+  padding: 1.2rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 47%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 33px;
 }
 
-.mentorGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-/* Responsive styles */
-@media (max-width: 1400px) {
-  .mentorGrid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  }
-}
-
-@media (max-width: 1200px) {
-  .mainContainer {
-    right: 0; /* When notification panel is hidden on smaller screens */
-  }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  margin-left: 220px;
+  margin-right: 320px;
+  margin-top: 27px;
 }
 
 @media (max-width: 992px) {
-  .selectsContainer {
-    grid-template-columns: 1fr;
+  .wrapper {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 80px 15px 0;
   }
 }
 
-@media (max-width: 768px) {
-  .mainContainer {
-    left: 0; /* When sidebar is hidden on smaller screens */
-    padding: 25px;
-  }
-  
-  .headerContainer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-  
-  .addButton {
-    width: 100%;
-  }
+.searchBar {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btnFilter {
+  background: linear-gradient(to right, #111827, #374151);
+  color: white;
+}
+.btnFilter:hover,
+.btnNew:hover {
+  background: linear-gradient(to right, #374151, #111827);
+  opacity: 0.9;
+  color: whitesmoke;
+}
+
+.btnFilter:active,
+.btnNew:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: whitesmoke;
+}
+
+.btnNew {
+  background: linear-gradient(to right, #111827, #374151);
+  color: white;
+}
+
+.btnLight {
+  background-color: #eceef1d2;
+  transition: all 0.1s ease-in-out;
+}
+
+.btnLight:hover {
+  background-color: #ccced3d2;
+  cursor: pointer;
+}
+
+.btnLight:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btnList {
+  background-color: #111827;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btnList:hover {
+  background-color: #253041;
+  color: whitesmoke;
+}
+
+.btnList:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-secondary {
+  color: #111827;
+  background-color: white;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f3f4f6;
+  border-color: #111827;
+  color: #111827;
+}
+
+.btn-outline-secondary:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.meetingCard {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 1.3rem;
+  background: linear-gradient(to right, #ffffff, #f9fafb);
+}
+
+.statusBadge {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.confirmed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.inprogress {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.avatarGroup img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-right: -10px;
+}
+
+.meetingTime,
+.meetingDate,
+.meetingLocation {
+  font-size: 0.9rem;
+}
+
+.calendarPicker {
+  width: 200px;
+  display: none;
+  z-index: 999;
+}
+
+.selectedDate {
+  font-size: 0.9rem;
 }
 
 @media (max-width: 576px) {
-  .mentorGrid {
-    grid-template-columns: 1fr;
+  .selectedDate {
+    display: block;
+    margin-top: 0.5rem;
   }
 }

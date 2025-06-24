@@ -20,13 +20,13 @@ const ChartAndFundings = () => {
               {/* Static Profile List */}
               <div className={`${styles.profileContainer} mt-3`}>
                 <div className={styles.profileItem}>
-                  <i className="bi bi-person-badge-fill me-2"></i> Employee Profile
+                  <i className="bi bi-person-badge-fill me-2"></i>Investor Profile
                 </div>
                 <div className={styles.profileItem}>
-                  <i className="bi bi-mortarboard-fill me-2"></i> Student Profile
+                  <i className="bi bi-mortarboard-fill me-2"></i> Mentor Profile
                 </div>
                 <div className={styles.profileItem}>
-                  <i className="bi bi-people-fill me-2"></i> Admin Profile
+                  <i className="bi bi-people-fill me-2"></i> Employee Profile
                 </div>
               </div>
             </div>

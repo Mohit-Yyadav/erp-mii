@@ -1,12 +1,13 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Dashboard from '../components/startup/Dashboard'
+import Dashboard from '../components/dashboard_components/Dashboard.jsx'
+
 
 
 
 import Profile from "../components/startup/Profile";
-import MainContent from "../components/dashboard_components/MainContent";
-import mainContentStyles from "../assets/css/startup/MainContent.module.css";
+import MainContent from "../components/dashboard_components/MainContent.jsx";
+import mainContentStyles from "../assets/css/dashboard/MainContent.module.css";
 import StartupDirectory from "../components/startup/StartupDirectory.jsx";
 import StartupProfileForm from "../components/startup/StartupForm";
 import StartupDisplay from "../components/startup/StartupDisplay";
@@ -41,7 +42,7 @@ import EmployeeDataUpdateForm from "../components/employee/EmployeeDataUpdateFor
 import MentorProfileUpdateForm from "../components/mentor/MentorProfileUpdateForm.jsx";
 import  Feedback from "../components/feedback/Feedback.jsx";
 import MeetingDirectory from "../components/meetingSchedule/Meetingdirectory.jsx";
-import StartupPendingApprovalDirectory from "../components/startup/StartupPendingApprovalDirectory.jsx";
+import StartupPendingApprovalDirectory from "../components/startup/StartupPendingDirectory.jsx";
 import MainFormUpdate from '../components/startup/MainFormUpdate.jsx';
 import MainFormDisplay from '../components/startup/MainFormDisplay.jsx';
 

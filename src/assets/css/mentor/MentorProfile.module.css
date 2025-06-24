@@ -1,198 +1,97 @@
-  .mentorBody {
-    font-family: Arial, sans-serif;
-     background-color: #eaebec !important;
-    color: #333;
-    line-height: 1.6;
+.meetingBody {
+  background-color: #f8f9fa;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.meetingContainer {
+  width: 100%;
+  max-width: 1200px; /* Increased width */
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.meetingTitle {
+  width: 100%;
+  padding: 15px 25px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meetingCreateMeetingButton {
+  color: black;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.meetingCreateMeetingButton:hover {
+  opacity: 0.9;
+}
+
+.meetingCard {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%; 
+  transition: all 0.3s ease;
+  /* font-weight: bold; */
+
+}
+
+.meetingCancel {
+  background: #e5e7eb;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin-right: 10px;
+  font-weight: 500;
+  color: #111;
+}
+
+.meetingSaveMeetingButton {
+  background: #111827;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+.meetingbar {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e5e7eb;
+  text-align: center;
+  color: #555;
+  border-radius: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .meetingContainer {
+    padding: 0 10px;
   }
-  
-  .mentorContainer {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    margin-top: 50px;
-  }
-  
-  .mentorFormCard {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 5px;
-  }
-  
-  .mentorFormTitle {
-    text-align: center;
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: bold !important;
-  }
-  
-  .mentorFormSubtitle {
-    text-align: center;
-    font-size: 14px;
-    color: #6c757d;
-    margin-bottom: 25px;
-  }
-  
-  .mentorSectionCard {
-    border: 1px solid #dadee1;
-    border-radius: 8px;
-    padding: 20px 10px 20px 20px;
-    margin-bottom: 25px;
-    background-color: #fff;
-  }
-  
-  .mentorSectionHeader {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .mentorSectionHeader i {
-    margin-right: 10px;
-    font-size: 20px;
-  }
-  
-  .mentorSectionHeader h5 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-  }
-  
-  .mentorFormRow {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
-    gap: 20px;
-  }
-  
-  .mentorFormGroup {
-    flex: 1 1 300px;
-    margin-bottom: 8px;
-    padding-right: 15px;
-  }
-  
-  .mentorSplitGroup {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  
-  .mentorHalf {
-    flex: 1;
-    padding-right: 0;
-  }
-  
-  .mentorLabel {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
-    font-size: 14px;
-  }
-  
-  input,
-  select,
-  textarea {
-    width: 100%;
-    padding: 8px 12px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  .mentorTextarea {
-    resize: vertical;
-  }
-  
-  .mentorRadioGroup {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-  
-  .mentorRadioOption {
-    display: flex;
-    align-items: center;
-  }
-  
-  .mentorRadioOption input {
-    margin-right: 5px;
-  }
-  
-  .mentorUploadContainer {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+
+  .meetingTitle {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
   }
-  
-  .mentorProfilePreview {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
+
+  .meetingCreateMeetingButton {
+    align-self: flex-end;
   }
-  
-  .mentorFormActions {
-    display: flex;
-    gap: 20px;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-  }
-  
-  .mentorFormActions button {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 1px solid black;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .mentorCancelBtn {
-    background-color: white;
-    color: black;
-  }
-  
-  .mentorSubmitBtn {
-    background-color: rgb(87, 82, 82);
-    color: white;
-  }
-  
-  .mentorCancelBtn:hover {
-    background-color: black;
-    color: white;
-  }
-  
-  .mentorSubmitBtn:hover {
-    background-color: white;
-    color: black;
-  }
-  
-  @media (max-width: 768px) {
-    .mentorFormRow {
-      flex-direction: column;
-      gap: 3px;
-      margin-bottom: 8px;
-    }
-  
-    .mentorFormGroup {
-      margin-bottom: 5px;
-      padding-right: 0;
-      flex-basis: 0px !important;
-    }
-  
-    .mentorSectionCard {
-      padding: 12px !important; /* Reduce padding */
-      margin-bottom: 10px !important; /* Reduce space between sections */
-    }
-  
-    .mentorFormActions {
-      flex-direction: column;
-      gap: 5px; /* Reduce gap */
-    }
-  
-    .mentorSubmitBtn,
-    .mentorCancelBtn {
-      width: 100%;
-      text-align: center;
-    }
-  }
-  
+}

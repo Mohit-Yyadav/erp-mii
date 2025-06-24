@@ -89,7 +89,7 @@ import { useEffect, useState } from "react"
           </div>
         </div>
 
-        <div className={styles.startupGrid}>
+        <div className={styles.mentorGrid}>
           {mentors?.map((mentor, i) => (
             <div key={mentor.id} className={styles.mentorCard}>
               <div className={styles.mentorCard}>

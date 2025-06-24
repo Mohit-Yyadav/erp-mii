@@ -60,7 +60,15 @@ const Sidebar = ({ baseLink, dashboard, sidebarOption }) => {
           </a> */}
 
           <ul className={styles.nav}>
-            <li className={styles.textMuted}>{dashboard}</li>
+            <li>
+              <NavLink
+                to={`${baseLink || "baselink"}`}
+                className={styles.textMuted}
+                style={{ cursor: "pointer", textDecoration: "none", color: "inherit" }}
+              >
+                {dashboard}
+              </NavLink>
+            </li>
             {sidebarOption.map((data, i) => {
               return (
                 <li key={i}>

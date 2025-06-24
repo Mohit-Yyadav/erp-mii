@@ -37,7 +37,7 @@ import EmployeeDataUpdateForm from "../components/employee/EmployeeDataUpdateFor
 import MentorProfileUpdateForm from "../components/mentor/MentorProfileUpdateForm.jsx";
 import  Feedback from "../components/feedback/Feedback.jsx";
 import MeetingDirectory from "../components/meetingSchedule/Meetingdirectory.jsx";
-import StartupPendingApprovalDirectory from "../components/startup/StartupPendingApprovalDirectory.jsx";
+import StartupPendingApprovalDirectory from "../components/startup/StartupPendingDirectory.jsx";
 
 import StartupDirectoryApproval from "../components/startup/StartupDirectoryApproval.jsx";
 

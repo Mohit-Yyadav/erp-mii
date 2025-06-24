@@ -43,16 +43,16 @@ const StartupDirectory = () => {
   }
 
   return (
-    <div className="container py-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h1 className={styles.title}>Startup Directory</h1>
+    <div className={styles.mainContainer}>
+                <div className={styles.headerContainer}>
+              <h1 className={styles.title}>Startup Directory</h1>
         <button className={`btn btn-primary ${styles.addButton}`}>
           <i className="bi bi-plus"></i> Add Startups
         </button>
       </div>
 
-      <div className="row mb-4">
-        <div className="col-md-6">
+      <div className={styles.filtersContainer}>
+                     <div className={styles.searchBox}>
           <div className="input-group">
             <span className="input-group-text bg-white border-end-0">
               <i className="bi bi-search text-muted"></i>
@@ -65,7 +65,7 @@ const StartupDirectory = () => {
             />
           </div>
         </div>
-        <div className="col-md-6 d-flex gap-2 mt-3 mt-md-0">
+            <div className={styles.selectsContainer}>
           <select className="form-select">
           <option>All Status</option>
             <option>Growth</option>
@@ -86,9 +86,9 @@ const StartupDirectory = () => {
         </div>
       </div>
      
-      <div className="row bg-light">
+        <div className={styles.startupGrid}>
         {startups.map((startup) => (
-          <div key={startup.id} className="col-md-6 col-lg-4 mb-4 mt-4">
+           <div key={startup.id} className={styles.mentorCard}>
             <div className={styles.startupCard}>
               <div className={styles.cardHeader}>
                 <Dropdown className={styles.menuDropdown}>
